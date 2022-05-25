@@ -6,6 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
+    "watch:library": "ng build ng-fingerprintjs-pro --watch",
     "test": "ng test"
   },
   "private": true,
@@ -36,5 +37,8 @@
     "karma-jasmine-html-reporter": "~1.7.0",
     "ng-packagr": "^13.0.0",
     "typescript": "~4.6.2"
-  }
+  },
+  "workspaces": [
+    "projects/*"
+  ]
 }

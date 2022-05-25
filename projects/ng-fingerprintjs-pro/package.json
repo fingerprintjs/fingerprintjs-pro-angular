@@ -6,6 +6,7 @@
     "@angular/core": "^13.3.0"
   },
   "dependencies": {
+    "@fingerprintjs/fingerprintjs-pro-spa": "0.4.0",
     "tslib": "^2.3.0"
   }
 }

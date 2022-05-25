@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NgFingerprintjsProComponent } from './ng-fingerprintjs-pro.component';
+import { HomeComponent } from './home.component';
 
-describe('NgFingerprintjsProComponent', () => {
-  let component: NgFingerprintjsProComponent;
-  let fixture: ComponentFixture<NgFingerprintjsProComponent>;
+describe('HomeComponent', () => {
+  let component: HomeComponent;
+  let fixture: ComponentFixture<HomeComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NgFingerprintjsProComponent ]
+      declarations: [ HomeComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NgFingerprintjsProComponent);
+    fixture = TestBed.createComponent(HomeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
