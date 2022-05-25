@@ -7,18 +7,20 @@ import { IFingerprintjsProSettings } from './interfaces/i-fingerprintjs-pro-sett
   providedIn: 'root'
 })
 export class NgFingerprintjsProService {
-  private fingerprintJsAgent: FpjsClient
+  private fingerprintJsClient: FpjsClient;
+  private readonly fingerprintJsClientInitPromise: Promise<Object>;
+
   constructor(
     @Inject(NG_FINGERPTINTJS_PRO_SETTINGS_TOKEN) private readonly settings: IFingerprintjsProSettings
   ) {
-    console.log('NgFingerprintjsProService constructor', settings);
-    this.fingerprintJsAgent = new FpjsClient(settings.clientOptions)
-    this.fingerprintJsAgent.init();
+    this.fingerprintJsClient = new FpjsClient(settings.clientOptions);
+    this.fingerprintJsClientInitPromise = this.fingerprintJsClient.init();
   }
-  getVisitorData(options?: GetOptions<boolean>) {
-    return this.fingerprintJsAgent.getVisitorData(options);
+  async getVisitorData(options?: GetOptions<boolean>) {
+    await this.fingerprintJsClientInitPromise;
+    return this.fingerprintJsClient.getVisitorData(options);
   }
   clearCache() {
-    return this.fingerprintJsAgent.clearCache();
+    return this.fingerprintJsClient.clearCache();
   }
 }
