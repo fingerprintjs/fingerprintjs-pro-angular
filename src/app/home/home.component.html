@@ -1,0 +1,15 @@
+<h2>Home page</h2>
+<p>On this page we use the <i>getVisitorData</i> method to get visitor info.
+</p>
+<p>You can open the Network tab in your browser Dev Tools and see new requests when you clear cache and load new data.</p>
+<div class="controls">
+  <button (click)="onButtonClick()" class="submitButton">Identify</button>
+  <button (click)="onClearCacheClick()" class="clearButton">Clear cache</button>
+</div>
+
+<p><b>VisitorID:</b> {{visitorId}}</p>
+
+<div *ngIf="extendedResult">
+  <h3>Extended result</h3>
+  <pre class="extendedResult">{{extendedResultJSON}}</pre>
+</div>
