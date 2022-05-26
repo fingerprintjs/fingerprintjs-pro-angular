@@ -7,6 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "watch:library": "ng build ng-fingerprintjs-pro --watch",
+    "generate:version": "node bin/generate-version.js",
     "test": "ng test"
   },
   "private": true,
