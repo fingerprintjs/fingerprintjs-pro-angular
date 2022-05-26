@@ -1,27 +1,147 @@
-# FingerprintjsProAngular
+<p align="center">
+  <a href="https://fingerprintjs.com">
+    <img src="res/logo.svg" alt="FingerprintJS" />
+  </a>
+<p align="center">
+<a href="https://opensource.org/licenses/MIT">
+  <img src="https://img.shields.io/:license-mit-blue.svg" alt="MIT license">
+</a>
+<a href="https://discord.gg/39EpE2neBg">
+  <img src="https://img.shields.io/discord/852099967190433792?style=logo&label=Discord&logo=Discord&logoColor=white" alt="Discord server">
+</a>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.6.
 
-## Development server
+# FingerprintJS Pro Angular
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+FingerprintJS Pro Angular is an easy-to-use Angular library for **[FingerprintJS Pro](https://fingerprintjs.com/)**. Example of usage is located in the [src](https://github.com/fingerprintjs/fingerprintjs-pro-react/tree/main/src) folder.  **This package works with FingerprintJS Pro, it is not compatible with [open-source FingerprintJS](https://github.com/fingerprintjs/fingerprintjs).** You can learn more about the difference between FingerprintJS Pro and open-source FingerprintJS in the [official documentation](https://dev.fingerprintjs.com/docs/pro-vs-open-source).
 
-## Code scaffolding
+## Table of contents
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- [Installation](#installation)
+- [Getting started](#getting-started)
+- [Caching strategy](#caching-strategy)
+- [Documentation](#documentation)
+- [Support and feedback](#support-and-feedback)
+- [License](#license)
 
-## Build
+## Installation
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Using [npm](https://npmjs.org):
 
-## Running unit tests
+```sh
+npm install @fingerprintjs/ng-fingerprintjs-pro
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Using [yarn](https://yarnpkg.com):
 
-## Running end-to-end tests
+```sh
+yarn add @fingerprintjs/ng-fingerprintjs-pro
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Getting started
 
-## Further help
+In order to identify visitors, you'll need a FingerprintJS Pro account (you can [sign up for free](https://dashboard.fingerprintjs.com/signup/)).
+You can learn more about API keys in the [official FingerprintJS Pro documentation](https://dev.fingerprintjs.com/docs/quick-start-guide).
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+1. On your Angular Project, you shall include the `NgFingerprintjsProModule` on your highest level application module. The easiest install mode call the `forRoot()` method and pass the `loadOptions` with `apiKey`. You can specify multiple configuration options. Set a region if you have chosen a non-global region during registration. Please refer to the [Regions page](https://dev.fingerprintjs.com/docs/regions).
+
+```javascript
+import { NgModule } from '@angular/core';
+import { NgFingerprintjsProModule } from 'ng-fingerprintjs-pro';
+// ...
+
+@NgModule({
+  declarations: [AppComponent],
+  imports: [
+    BrowserModule,
+    NgFingerprintjsProModule.forRoot({loadOptions: {apiKey: 'your-fpjs-public-api-key'}})
+//  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
+
+2. Add to your component `NgFingerprintjsProService` provided from DI. Use it method `getVisitorData()` to identify visitor.
+
+```typescript
+import { Component, OnInit } from '@angular/core';
+import { NgFingerprintjsProService } from 'ng-fingerprintjs-pro';
+
+@Component({
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
+})
+export class HomeComponent implements OnInit {
+
+  constructor(private ngFingerprintjsProService: NgFingerprintjsProService) { }
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  visitorId = 'Press "Identify" button to get visitorId';
+
+  async onIdentifyButtonClick() : Promise<void> {
+    const data = await this.ngFingerprintjsProService.getVisitorData();
+//  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    this.visitorId = data.visitorId;
+    this.extendedResult = data;
+  }
+}
+```
+
+## Caching strategy
+:warning: **WARNING** If you use data from `extendedResult`, please pay additional attention to caching strategy.
+
+FingerprintJS Pro uses API calls as the basis for billing. Our [best practices](https://dev.fingerprintjs.com/docs/caching-visitor-information) strongly recommend using cache to optimise API calls rate. The Library uses the SessionStorage cache strategy by default.
+
+Some fields from the [extendedResult](https://dev.fingerprintjs.com/docs/js-agent#extendedresult) (e.g `ip` or `lastSeenAt`) might change for the same visitor. If you need exact current data, it is recommended to pass `ignoreCache=true` inside [getData](#returned-object) function.
+
+## Documentation
+
+This library uses [FingerprintJS Pro agent](https://fingerprintjs.com/github/) internally. The documentation for the FingerprintJS Pro agent is available on https://dev.fingerprintjs.com/docs.
+
+### `NgFingerprintjsProModule`
+
+The module just initialize FingerprintJS Pro agent with load options, configure caching strategy and provides `NgFingerprintjsProService` to DI.
+
+#### `NgFingerprintjsProModule.forRoot` props
+
+`loadOptions: FingerprintJS.LoadOptions`
+
+Options for the FingerprintJS JS Pro agent `load()` method. Options follow [agent's initialisation properties](https://dev.fingerprintjs.com/docs/js-agent#agent-initialization).
+
+`cacheLocation?: CacheLocation`
+
+Defines which built-in cache mechanism the client should use. Caching options follow properties defined in [fingerprintjs-pro-spa repository](https://github.com/fingerprintjs/fingerprintjs-pro-spa#caching).
+
+`cache?: ICache`
+
+Custom cache implementation. Takes precedence over the `cacheLocation` property. Caching options follow properties defined in [fingerprintjs-pro-spa repository](https://github.com/fingerprintjs/fingerprintjs-pro-spa#caching).
+
+`cacheTimeInSeconds?: number`
+
+Duration in seconds for which data is stored in the cache. Cannot exceed 86_400 (24h) because caching data for longer than 24 hours can negatively affect identification accuracy. Caching options follow properties defined in [fingerprintjs-pro-spa repository](https://github.com/fingerprintjs/fingerprintjs-pro-spa#caching).
+
+`cachePrefix?: string`
+
+Custom prefix for localStorage and sessionStorage cache keys. Will be ignored if the `cache` is provided. Caching options follow properties defined in [fingerprintjs-pro-spa repository](https://github.com/fingerprintjs/fingerprintjs-pro-spa#caching).
+
+### `NgFingerprintjsProService` methods
+
+#### `getVisitorData(getOptions?: GetOptions)`
+
+Method performs identification requests with the FingerprintJS Pro API. The returned object contains information about loading status, errors, and [visitor](https://dev.fingerprintjs.com/docs/js-agent#extendedresult).
+
+- `getOptions: GetOptions<TExtended>` parameter follows parameters of the FingerprintJS Pro's [`get` function](https://dev.fingerprintjs.com/docs/js-agent#parameters-reference).
+
+#### `clearCache`
+
+Method clears cache for current caching strategy. 
+
+## Support and feedback
+For support or to provide feedback, please [raise an issue on our issue tracker](https://github.com/fingerprintjs/fingerprintjs-pro-angular/issues). If you require private support, please email us at oss-support@fingerprintjs.com. If you'd like to have a similar Angular library for the [open-source FingerprintJS](https://github.com/fingerprintjs/fingerprintjs), consider [raising an issue in our issue tracker](https://github.com/fingerprintjs/fingerprintjs-pro-angular/issues).
+
+
+## License
+
+This project is licensed under the MIT license. See the [LICENSE](https://github.com/fingerprintjs/fingerprintjs-pro-angular/blob/main/LICENSE) file for more info.
