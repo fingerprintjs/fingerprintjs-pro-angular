@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { NgFingerprintjsProService, GetResult, ExtendedGetResult } from 'ng-fingerprintjs-pro';
 
 @Component({
@@ -6,7 +6,7 @@ import { NgFingerprintjsProService, GetResult, ExtendedGetResult } from 'ng-fing
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
 
   constructor(private ngFingerprintjsProService: NgFingerprintjsProService) { }
 
@@ -15,9 +15,6 @@ export class HomeComponent implements OnInit {
 
   get extendedResultJSON() {
     return JSON.stringify(this.extendedResult, null, 2);
-  }
-
-  ngOnInit(): void {
   }
 
   async onButtonClick() : Promise<void> {
