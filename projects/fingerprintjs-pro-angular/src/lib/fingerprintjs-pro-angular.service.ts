@@ -25,9 +25,9 @@ export class FingerprintjsProAngularService {
     this.fingerprintJsClient = new FpjsClient(clientOptions);
     this.fingerprintJsClientInitPromise = this.fingerprintJsClient.init();
   }
-  async getVisitorData(options?: GetOptions<boolean>) {
+  async getVisitorData<TExtended extends boolean>(options?: GetOptions<TExtended>, ignoreCache?: boolean) {
     await this.fingerprintJsClientInitPromise;
-    return this.fingerprintJsClient.getVisitorData(options);
+    return this.fingerprintJsClient.getVisitorData(options, ignoreCache);
   }
   clearCache() {
     return this.fingerprintJsClient.clearCache();

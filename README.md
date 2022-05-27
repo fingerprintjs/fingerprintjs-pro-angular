@@ -94,7 +94,7 @@ export class HomeComponent implements OnInit {
 
 FingerprintJS Pro uses API calls as the basis for billing. Our [best practices](https://dev.fingerprintjs.com/docs/caching-visitor-information) strongly recommend using cache to optimise API calls rate. The Library uses the SessionStorage cache strategy by default.
 
-Some fields from the [extendedResult](https://dev.fingerprintjs.com/docs/js-agent#extendedresult) (e.g `ip` or `lastSeenAt`) might change for the same visitor. If you need exact current data, it is recommended to pass `ignoreCache=true` inside [getData](#returned-object) function.
+Some fields from the [extendedResult](https://dev.fingerprintjs.com/docs/js-agent#extendedresult) (e.g `ip` or `lastSeenAt`) might change for the same visitor. If you need exact current data, it is recommended to pass `ignoreCache=true` inside [getVisitorData](#getvisitordatagetoptions-getoptions) function.
 
 ## Documentation
 
@@ -128,11 +128,12 @@ Custom prefix for localStorage and sessionStorage cache keys. Will be ignored if
 
 ### `FingerprintjsProAngularService` methods
 
-#### `getVisitorData(getOptions?: GetOptions)`
+#### `getVisitorData(ignoreCache?: boolean, options?: GetOptions<TExtended>)`
 
 Method performs identification requests with the FingerprintJS Pro API. The returned object contains information about loading status, errors, and [visitor](https://dev.fingerprintjs.com/docs/js-agent#extendedresult).
 
 - `getOptions: GetOptions<TExtended>` parameter follows parameters of the FingerprintJS Pro's [`get` function](https://dev.fingerprintjs.com/docs/js-agent#parameters-reference).
+- `ignoreCache: boolean` always make a request to the API, even if the data is present in cache.
 
 #### `clearCache`
 
