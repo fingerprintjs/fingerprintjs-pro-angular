@@ -1,5 +1,5 @@
 {
-  "name": "ng-fingerprintjs-pro",
+  "name": "@fingerprintjs/ng-fingerprintjs-pro",
   "version": "0.0.1",
   "description": "FingerprintJS Pro Angular SDK",
   "keywords": [
