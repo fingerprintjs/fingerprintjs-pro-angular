@@ -29,13 +29,13 @@ FingerprintJS Pro Angular is an easy-to-use Angular library for **[FingerprintJS
 Using [npm](https://npmjs.org):
 
 ```sh
-npm install @fingerprintjs/ng-fingerprintjs-pro
+npm install @fingerprintjs/fingerprintjs-pro-angular
 ```
 
 Using [yarn](https://yarnpkg.com):
 
 ```sh
-yarn add @fingerprintjs/ng-fingerprintjs-pro
+yarn add @fingerprintjs/fingerprintjs-pro-angular
 ```
 
 ## Getting started
@@ -43,18 +43,18 @@ yarn add @fingerprintjs/ng-fingerprintjs-pro
 In order to identify visitors, you'll need a FingerprintJS Pro account (you can [sign up for free](https://dashboard.fingerprintjs.com/signup/)).
 You can learn more about API keys in the [official FingerprintJS Pro documentation](https://dev.fingerprintjs.com/docs/quick-start-guide).
 
-1. On your Angular Project, you shall include the `NgFingerprintjsProModule` on your highest level application module. The easiest install mode call the `forRoot()` method and pass the `loadOptions` with `apiKey`. You can specify multiple configuration options. Set a region if you have chosen a non-global region during registration. Please refer to the [Regions page](https://dev.fingerprintjs.com/docs/regions).
+1. On your Angular Project, you shall include the `FingerprintjsProAngularModule` on your highest level application module. The easiest install mode call the `forRoot()` method and pass the `loadOptions` with `apiKey`. You can specify multiple configuration options. Set a region if you have chosen a non-global region during registration. Please refer to the [Regions page](https://dev.fingerprintjs.com/docs/regions).
 
 ```javascript
 import { NgModule } from '@angular/core';
-import { NgFingerprintjsProModule } from 'ng-fingerprintjs-pro';
+import { FingerprintjsProAngularModule } from 'fingerprintjs-pro-angular';
 // ...
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
-    NgFingerprintjsProModule.forRoot({loadOptions: {apiKey: 'your-fpjs-public-api-key'}})
+    FingerprintjsProAngularModule.forRoot({loadOptions: {apiKey: 'your-fpjs-public-api-key'}})
 //  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   ],
   providers: [],
@@ -63,11 +63,11 @@ import { NgFingerprintjsProModule } from 'ng-fingerprintjs-pro';
 export class AppModule { }
 ```
 
-2. Add to your component `NgFingerprintjsProService` provided from DI. Use it method `getVisitorData()` to identify visitor.
+2. Add to your component `FingerprintjsProAngularService` provided from DI. Use it method `getVisitorData()` to identify visitor.
 
 ```typescript
 import { Component, OnInit } from '@angular/core';
-import { NgFingerprintjsProService } from 'ng-fingerprintjs-pro';
+import { FingerprintjsProAngularService } from 'fingerprintjs-pro-angular';
 
 @Component({
   selector: 'app-home',
@@ -76,13 +76,13 @@ import { NgFingerprintjsProService } from 'ng-fingerprintjs-pro';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private ngFingerprintjsProService: NgFingerprintjsProService) { }
-//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  constructor(private fingerprintjsProAngularService: FingerprintjsProAngularService) { }
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   visitorId = 'Press "Identify" button to get visitorId';
 
   async onIdentifyButtonClick() : Promise<void> {
-    const data = await this.ngFingerprintjsProService.getVisitorData();
-//  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    const data = await this.fingerprintjsProAngularService.getVisitorData();
+//  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     this.visitorId = data.visitorId;
     this.extendedResult = data;
   }
@@ -100,11 +100,11 @@ Some fields from the [extendedResult](https://dev.fingerprintjs.com/docs/js-agen
 
 This library uses [FingerprintJS Pro agent](https://fingerprintjs.com/github/) internally. The documentation for the FingerprintJS Pro agent is available on https://dev.fingerprintjs.com/docs.
 
-### `NgFingerprintjsProModule`
+### `FingerprintjsProAngularModule`
 
-The module just initialize FingerprintJS Pro agent with load options, configure caching strategy and provides `NgFingerprintjsProService` to DI.
+The module just initialize FingerprintJS Pro agent with load options, configure caching strategy and provides `FingerprintjsProAngularService` to DI.
 
-#### `NgFingerprintjsProModule.forRoot` props
+#### `FingerprintjsProAngularModule.forRoot` props
 
 `loadOptions: FingerprintJS.LoadOptions`
 
@@ -126,7 +126,7 @@ Duration in seconds for which data is stored in the cache. Cannot exceed 86_400 
 
 Custom prefix for localStorage and sessionStorage cache keys. Will be ignored if the `cache` is provided. Caching options follow properties defined in [fingerprintjs-pro-spa repository](https://github.com/fingerprintjs/fingerprintjs-pro-spa#caching).
 
-### `NgFingerprintjsProService` methods
+### `FingerprintjsProAngularService` methods
 
 #### `getVisitorData(getOptions?: GetOptions)`
 

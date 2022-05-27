@@ -1,9 +1,9 @@
 /*
- * Public API Surface of ng-fingerprintjs-pro
+ * Public API Surface of fingerprintjs-pro-angular
  */
 
-export * from './lib/ng-fingerprintjs-pro.service';
-export * from './lib/ng-fingerprintjs-pro.module';
+export * from './lib/fingerprintjs-pro-angular.service';
+export * from './lib/fingerprintjs-pro-angular.module';
 export {
   CacheLocation,
   Cacheable,

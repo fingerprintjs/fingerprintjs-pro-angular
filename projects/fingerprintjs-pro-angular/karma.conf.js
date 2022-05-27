@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, '../../coverage/ng-fingerprintjs-pro'),
+      dir: require('path').join(__dirname, '../../coverage/fingerprintjs-pro-angular'),
       subdir: '.',
       reporters: [
         { type: 'html' },

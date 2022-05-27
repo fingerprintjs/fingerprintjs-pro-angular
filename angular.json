@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "fingerprintjs-pro-angular": {
+    "fingerprintjs-pro-angular-demo": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/fingerprintjs-pro-angular",
+            "outputPath": "dist/fingerprintjs-pro-angular-demo",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -74,10 +74,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "fingerprintjs-pro-angular:build:production"
+              "browserTarget": "fingerprintjs-pro-angular-demo:build:production"
             },
             "development": {
-              "browserTarget": "fingerprintjs-pro-angular:build:development"
+              "browserTarget": "fingerprintjs-pro-angular-demo:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -85,7 +85,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "fingerprintjs-pro-angular:build"
+            "browserTarget": "fingerprintjs-pro-angular-demo:build"
           }
         },
         "test": {
@@ -107,23 +107,23 @@
         }
       }
     },
-    "ng-fingerprintjs-pro": {
+    "fingerprintjs-pro-angular": {
       "projectType": "library",
-      "root": "projects/ng-fingerprintjs-pro",
-      "sourceRoot": "projects/ng-fingerprintjs-pro/src",
+      "root": "projects/fingerprintjs-pro-angular",
+      "sourceRoot": "projects/fingerprintjs-pro-angular/src",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "project": "projects/ng-fingerprintjs-pro/ng-package.json"
+            "project": "projects/fingerprintjs-pro-angular/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/ng-fingerprintjs-pro/tsconfig.lib.prod.json"
+              "tsConfig": "projects/fingerprintjs-pro-angular/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "projects/ng-fingerprintjs-pro/tsconfig.lib.json"
+              "tsConfig": "projects/fingerprintjs-pro-angular/tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
@@ -131,13 +131,13 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/ng-fingerprintjs-pro/src/test.ts",
-            "tsConfig": "projects/ng-fingerprintjs-pro/tsconfig.spec.json",
-            "karmaConfig": "projects/ng-fingerprintjs-pro/karma.conf.js"
+            "main": "projects/fingerprintjs-pro-angular/src/test.ts",
+            "tsConfig": "projects/fingerprintjs-pro-angular/tsconfig.spec.json",
+            "karmaConfig": "projects/fingerprintjs-pro-angular/karma.conf.js"
           }
         }
       }
     }
   },
-  "defaultProject": "fingerprintjs-pro-angular"
+  "defaultProject": "fingerprintjs-pro-angular-demo"
 }

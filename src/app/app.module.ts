@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { environment } from 'src/environments/environment';
-import { NgFingerprintjsProModule } from 'ng-fingerprintjs-pro';
+import { FingerprintjsProAngularModule } from '@fingerprintjs/fingerprintjs-pro-angular';
 
 @NgModule({
   declarations: [
@@ -13,7 +13,7 @@ import { NgFingerprintjsProModule } from 'ng-fingerprintjs-pro';
   ],
   imports: [
     BrowserModule,
-    NgFingerprintjsProModule.forRoot({loadOptions: {apiKey: environment.fingerprintJsProPublicKey}})
+    FingerprintjsProAngularModule.forRoot({loadOptions: {apiKey: environment.fingerprintJsProPublicKey}})
   ],
   providers: [
   ],
