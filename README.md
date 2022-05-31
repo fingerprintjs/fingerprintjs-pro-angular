@@ -43,7 +43,7 @@ yarn add @fingerprintjs/fingerprintjs-pro-angular
 To identify visitors, you'll need a FingerprintJS Pro account (you can [sign up for free](https://dashboard.fingerprintjs.com/signup/)).
 You can learn more about API keys in the [official FingerprintJS Pro documentation](https://dev.fingerprintjs.com/docs/quick-start-guide).
 
-1. On your Angular Project, you shall include the `FingerprintjsProAngularModule` on your highest level application module. The easiest install mode call the `forRoot()` method and pass the `loadOptions` with `apiKey`. You can specify multiple configuration options. Set a region if you have chosen a non-global region during registration. Please refer to the [Regions page](https://dev.fingerprintjs.com/docs/regions).
+1. Add `FingerprintjsProAngularModule.forRoot()` to the imports sections in your root application module and pass the `loadOptions` configuration object. Set up your public key in the `apiKey` option. Set a `region` if you have chosen a non-global region during registration. Please refer to the [Regions page](https://dev.fingerprintjs.com/docs/regions). More information about `.forRoot()` arguments you can [find below](#fingerprintjsproangularmoduleforroot-props).
 
 ```javascript
 import { NgModule } from '@angular/core';
@@ -63,7 +63,7 @@ import { FingerprintjsProAngularModule } from 'fingerprintjs-pro-angular';
 export class AppModule { }
 ```
 
-2. Add to your component `FingerprintjsProAngularService` provided from DI. Use it method `getVisitorData()` to identify visitor.
+2. Inject service `FingerprintjsProAngularService` in your component's constructor. Now you can identify visitor using `getVisitorData()` method from the service.
 
 ```typescript
 import { Component, OnInit } from '@angular/core';
