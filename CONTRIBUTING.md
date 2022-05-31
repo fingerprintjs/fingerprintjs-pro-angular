@@ -9,7 +9,7 @@ The main branch is locked for the push action. For proposing changes, use the st
 ### Development playground
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.6.
-Root project is the demo app. You can find library in `projects/ng-fingerprint-pro` folder.
+The root project is the demo app. You can find the library in `projects/ng-fingerprint-pro` folder.
 
 Run `yarn watch:library` to rebuild library on each update.
 Run `yarn start` for the demo app dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.

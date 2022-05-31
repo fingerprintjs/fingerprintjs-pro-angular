@@ -13,7 +13,7 @@
 
 # FingerprintJS Pro Angular
 
-FingerprintJS Pro Angular is an easy-to-use Angular library for **[FingerprintJS Pro](https://fingerprintjs.com/)**. Example of usage is located in the [src](https://github.com/fingerprintjs/fingerprintjs-pro-react/tree/main/src) folder.  **This package works with FingerprintJS Pro, it is not compatible with [open-source FingerprintJS](https://github.com/fingerprintjs/fingerprintjs).** You can learn more about the difference between FingerprintJS Pro and open-source FingerprintJS in the [official documentation](https://dev.fingerprintjs.com/docs/pro-vs-open-source).
+FingerprintJS Pro Angular is an easy-to-use Angular library for **[FingerprintJS Pro](https://fingerprintjs.com/)**. An example usage is located in the [src](https://github.com/fingerprintjs/fingerprintjs-pro-react/tree/main/src) folder.  **This package works with FingerprintJS Pro, it is not compatible with [open-source FingerprintJS](https://github.com/fingerprintjs/fingerprintjs).** You can learn more about the difference between FingerprintJS Pro and open-source FingerprintJS in the [official documentation](https://dev.fingerprintjs.com/docs/pro-vs-open-source).
 
 ## Table of contents
 
@@ -40,7 +40,7 @@ yarn add @fingerprintjs/fingerprintjs-pro-angular
 
 ## Getting started
 
-In order to identify visitors, you'll need a FingerprintJS Pro account (you can [sign up for free](https://dashboard.fingerprintjs.com/signup/)).
+To identify visitors, you'll need a FingerprintJS Pro account (you can [sign up for free](https://dashboard.fingerprintjs.com/signup/)).
 You can learn more about API keys in the [official FingerprintJS Pro documentation](https://dev.fingerprintjs.com/docs/quick-start-guide).
 
 1. On your Angular Project, you shall include the `FingerprintjsProAngularModule` on your highest level application module. The easiest install mode call the `forRoot()` method and pass the `loadOptions` with `apiKey`. You can specify multiple configuration options. Set a region if you have chosen a non-global region during registration. Please refer to the [Regions page](https://dev.fingerprintjs.com/docs/regions).
@@ -98,46 +98,46 @@ Some fields from the [extendedResult](https://dev.fingerprintjs.com/docs/js-agen
 
 ## Documentation
 
-This library uses [FingerprintJS Pro agent](https://fingerprintjs.com/github/) internally. The documentation for the FingerprintJS Pro agent is available on https://dev.fingerprintjs.com/docs.
+This library uses [FingerprintJS Pro agent](https://fingerprintjs.com/github/) internally. The documentation for the FingerprintJS Pro agent is available at https://dev.fingerprintjs.com/docs.
 
 ### `FingerprintjsProAngularModule`
 
-The module just initialize FingerprintJS Pro agent with load options, configure caching strategy and provides `FingerprintjsProAngularService` to DI.
+The module just initializes the FingerprintJS Pro agent with load options, configure caching strategy, and provides `FingerprintjsProAngularService` to DI.
 
 #### `FingerprintjsProAngularModule.forRoot` props
 
 `loadOptions: FingerprintJS.LoadOptions`
 
-Options for the FingerprintJS JS Pro agent `load()` method. Options follow [agent's initialisation properties](https://dev.fingerprintjs.com/docs/js-agent#agent-initialization).
+Options for the FingerprintJS JS Pro agent `load()` method. Options follow the [agent's initialisation properties](https://dev.fingerprintjs.com/docs/js-agent#agent-initialization).
 
 `cacheLocation?: CacheLocation`
 
-Defines which built-in cache mechanism the client should use. Caching options follow properties defined in [fingerprintjs-pro-spa repository](https://github.com/fingerprintjs/fingerprintjs-pro-spa#caching).
+Defines which built-in cache mechanism the client should use. Caching options follow properties defined in the [fingerprintjs-pro-spa repository](https://github.com/fingerprintjs/fingerprintjs-pro-spa#caching).
 
 `cache?: ICache`
 
-Custom cache implementation. Takes precedence over the `cacheLocation` property. Caching options follow properties defined in [fingerprintjs-pro-spa repository](https://github.com/fingerprintjs/fingerprintjs-pro-spa#caching).
+Custom cache implementation. Takes precedence over the `cacheLocation` property. Caching options follow properties defined in the [fingerprintjs-pro-spa repository](https://github.com/fingerprintjs/fingerprintjs-pro-spa#caching).
 
 `cacheTimeInSeconds?: number`
 
-Duration in seconds for which data is stored in the cache. Cannot exceed 86_400 (24h) because caching data for longer than 24 hours can negatively affect identification accuracy. Caching options follow properties defined in [fingerprintjs-pro-spa repository](https://github.com/fingerprintjs/fingerprintjs-pro-spa#caching).
+Duration in seconds for which data is stored in the cache. Cannot exceed 86_400 (24h) because caching data for longer than 24 hours can negatively affect identification accuracy. Caching options follow properties defined in the [fingerprintjs-pro-spa repository](https://github.com/fingerprintjs/fingerprintjs-pro-spa#caching).
 
 `cachePrefix?: string`
 
-Custom prefix for localStorage and sessionStorage cache keys. Will be ignored if the `cache` is provided. Caching options follow properties defined in [fingerprintjs-pro-spa repository](https://github.com/fingerprintjs/fingerprintjs-pro-spa#caching).
+Custom prefix for localStorage and sessionStorage cache keys. Will be ignored if the `cache` is provided. Caching options follow properties defined in the [fingerprintjs-pro-spa repository](https://github.com/fingerprintjs/fingerprintjs-pro-spa#caching).
 
 ### `FingerprintjsProAngularService` methods
 
 #### `getVisitorData(ignoreCache?: boolean, options?: GetOptions<TExtended>)`
 
-Method performs identification requests with the FingerprintJS Pro API. The returned object contains information about loading status, errors, and [visitor](https://dev.fingerprintjs.com/docs/js-agent#extendedresult).
+This method performs identification requests with the FingerprintJS Pro API. The returned object contains information about loading status, errors, and [visitor](https://dev.fingerprintjs.com/docs/js-agent#extendedresult).
 
 - `getOptions: GetOptions<TExtended>` parameter follows parameters of the FingerprintJS Pro's [`get` function](https://dev.fingerprintjs.com/docs/js-agent#parameters-reference).
-- `ignoreCache: boolean` always make a request to the API, even if the data is present in cache.
+- `ignoreCache: boolean` always make a request to the API, even if the data is present in the cache.
 
 #### `clearCache`
 
-Method clears cache for current caching strategy. 
+Method clears the cache for current caching strategy. 
 
 ## Support and feedback
 For support or to provide feedback, please [raise an issue on our issue tracker](https://github.com/fingerprintjs/fingerprintjs-pro-angular/issues). If you require private support, please email us at oss-support@fingerprintjs.com. If you'd like to have a similar Angular library for the [open-source FingerprintJS](https://github.com/fingerprintjs/fingerprintjs), consider [raising an issue in our issue tracker](https://github.com/fingerprintjs/fingerprintjs-pro-angular/issues).
