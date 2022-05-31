@@ -4,11 +4,12 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build fingerprintjs-pro-angular",
     "watch": "ng build --watch --configuration development",
     "watch:library": "ng build fingerprintjs-pro-angular --watch",
     "generate:version": "node bin/generate-version.js",
     "lint": "eslint --ext .js,.ts --ignore-path .gitignore --max-warnings 0 .",
+    "test:dts": "tsc --noEmit --isolatedModules dist/fingerprintjs-pro-angular/public-api.d.ts",
     "test": "jest"
   },
   "private": true,
