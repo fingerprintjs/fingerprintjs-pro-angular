@@ -2,13 +2,17 @@ import { TestBed } from '@angular/core/testing';
 
 import { FingerprintjsProAngularService } from './fingerprintjs-pro-angular.service';
 import { FingerprintjsProAngularModule } from './fingerprintjs-pro-angular.module';
-import { CacheLocation, FpjsClient, FpjsClientOptions, GetOptions } from '@fingerprintjs/fingerprintjs-pro-spa';
+import {
+  CacheLocation,
+  FpjsClient,
+  FpjsClientOptions,
+} from '@fingerprintjs/fingerprintjs-pro-spa';
 
 import * as packageInfo from '../../package.json';
 
 const testData = {
   visitorId: 'abcdef123456',
-}
+};
 
 const loadOptions = {
   apiKey: 'test_api_key',
@@ -21,8 +25,8 @@ const fullOptions: FpjsClientOptions = {
   cacheTimeInSeconds: 60 * 15,
 };
 
-const init = jest.fn()
-const getVisitorData = jest.fn()
+const init = jest.fn();
+const getVisitorData = jest.fn();
 //
 jest.mock('@fingerprintjs/fingerprintjs-pro-spa', () => {
   return {
@@ -32,10 +36,10 @@ jest.mock('@fingerprintjs/fingerprintjs-pro-spa', () => {
         init,
         getVisitorData,
         clearCache: jest.fn(),
-      }
+      };
     }),
   };
-})
+});
 
 describe('FingerprintjsProAngularService', () => {
   let service: FingerprintjsProAngularService;
@@ -45,9 +49,7 @@ describe('FingerprintjsProAngularService', () => {
     getVisitorData.mockClear();
 
     TestBed.configureTestingModule({
-      imports: [
-        FingerprintjsProAngularModule.forRoot({loadOptions})
-      ]
+      imports: [FingerprintjsProAngularModule.forRoot({ loadOptions })],
     });
 
     service = TestBed.inject(FingerprintjsProAngularService);
@@ -65,7 +67,7 @@ describe('FingerprintjsProAngularService', () => {
           ...loadOptions,
           integrationInfo: [`fingerprintjs-pro-angular/${packageInfo.version}`],
         }),
-      })
+      }),
     );
   });
 
@@ -92,9 +94,10 @@ describe('FingerprintjsProAngularService with full params', () => {
     getVisitorData.mockClear();
 
     TestBed.configureTestingModule({
-      imports: [FingerprintjsProAngularModule.forRoot(fullOptions)]
+      imports: [FingerprintjsProAngularModule.forRoot(fullOptions)],
     });
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     service = TestBed.inject(FingerprintjsProAngularService);
   });
 
@@ -108,7 +111,7 @@ describe('FingerprintjsProAngularService with full params', () => {
         cacheLocation: CacheLocation.LocalStorage,
         cachePrefix: 'TEST_PREFIX',
         cacheTimeInSeconds: 60 * 15,
-      })
+      }),
     );
   });
-})
+});

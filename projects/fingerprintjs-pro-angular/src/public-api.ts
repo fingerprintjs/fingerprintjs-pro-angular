@@ -14,5 +14,5 @@ export {
   GetOptions,
   LoadOptions,
   GetResult,
-  ExtendedGetResult
+  ExtendedGetResult,
 } from '@fingerprintjs/fingerprintjs-pro-spa';
