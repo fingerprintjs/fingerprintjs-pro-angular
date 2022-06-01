@@ -12,9 +12,9 @@
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
     "paths": {
-      "ng-fingerprintjs-pro": [
-        "dist/ng-fingerprintjs-pro/ng-fingerprintjs-pro",
-        "dist/ng-fingerprintjs-pro"
+      "@fingerprintjs/fingerprintjs-pro-angular": [
+        "dist/fingerprintjs-pro-angular/fingerprintjs-pro-angular",
+        "dist/fingerprintjs-pro-angular"
       ]
     },
     "declaration": false,
@@ -22,6 +22,7 @@
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
+    "resolveJsonModule": true,
     "target": "es2017",
     "module": "es2020",
     "lib": [
