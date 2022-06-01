@@ -7,16 +7,14 @@ import { environment } from 'src/environments/environment';
 import { FingerprintjsProAngularModule } from '@fingerprintjs/fingerprintjs-pro-angular';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent
-  ],
+  declarations: [AppComponent, HomeComponent],
   imports: [
     BrowserModule,
-    FingerprintjsProAngularModule.forRoot({loadOptions: {apiKey: environment.fingerprintJsProPublicKey}})
+    FingerprintjsProAngularModule.forRoot({
+      loadOptions: { apiKey: environment.fingerprintJsProPublicKey },
+    }),
   ],
-  providers: [
-  ],
-  bootstrap: [AppComponent]
+  providers: [],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

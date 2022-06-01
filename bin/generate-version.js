@@ -9,7 +9,7 @@ const { writeFileSync } = require('fs');
 
 const filePath = './projects/fingerprintjs-pro-angular/src/lib/version.ts';
 
-const versionContent = `export const packageVersion = '${packageInfo.version}';`
+const versionContent = `export const packageVersion = '${packageInfo.version}';\n`;
 
 writeFileSync(filePath, versionContent);
 
