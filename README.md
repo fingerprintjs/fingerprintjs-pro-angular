@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://fingerprintjs.com">
-    <img src="res/logo.svg" alt="FingerprintJS" />
+    <img src="https://raw.githubusercontent.com/fingerprintjs/fingerprintjs-pro-angular/main/res/logo.svg" alt="FingerprintJS" width="312px" />
   </a>
 <p align="center">
 <a href="https://opensource.org/licenses/MIT">
