@@ -55,7 +55,7 @@ import { FingerprintjsProAngularModule } from 'fingerprintjs-pro-angular';
   imports: [
     BrowserModule,
     FingerprintjsProAngularModule.forRoot({loadOptions: {apiKey: 'your-fpjs-public-api-key'}})
-//  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+//  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   ],
   providers: [],
   bootstrap: [AppComponent]

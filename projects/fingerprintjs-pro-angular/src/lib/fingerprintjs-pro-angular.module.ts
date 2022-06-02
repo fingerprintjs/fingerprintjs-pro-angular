@@ -4,6 +4,27 @@ import { IFingerprintjsProSettings } from './interfaces/i-fingerprintjs-pro-sett
 import { FingerprintjsProAngularService } from './fingerprintjs-pro-angular.service';
 import { FpjsClientOptions } from '@fingerprintjs/fingerprintjs-pro-spa';
 
+/**
+ * Include FingerprintjsProAngularModule using `forRoot` method.
+ *
+ * @example ```typescript
+ * import { NgModule } from '@angular/core';
+ * import { FingerprintjsProAngularModule } from 'fingerprintjs-pro-angular';
+ * // ...
+ *
+ * @NgModule({
+ *   declarations: [AppComponent],
+ *   imports: [
+ *     BrowserModule,
+ *     FingerprintjsProAngularModule.forRoot({loadOptions: {apiKey: 'your-fpjs-public-api-key'}})
+ * //  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ *   ],
+ *   providers: [],
+ *   bootstrap: [AppComponent]
+ * })
+ * export class AppModule { }
+ * ```
+ */
 @NgModule()
 export class FingerprintjsProAngularModule {
   static forRoot(
