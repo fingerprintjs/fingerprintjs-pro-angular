@@ -4,6 +4,33 @@ import { FINGERPTINTJS_PRO_ANGULAR_SETTINGS_TOKEN } from './tokens/fingerprintjs
 import { IFingerprintjsProSettings } from './interfaces/i-fingerprintjs-pro-settings';
 import { packageVersion } from './version';
 
+/**
+ * Inject FingerprintjsProAngularService and use it to make identification requests.
+ *
+ * @example ```typescript
+ * import { Component, OnInit } from '@angular/core';
+ * import { FingerprintjsProAngularService } from 'fingerprintjs-pro-angular';
+ *
+ * @Component({
+ *   selector: 'app-home',
+ *   templateUrl: './home.component.html',
+ *   styleUrls: ['./home.component.css']
+ * })
+ * export class HomeComponent implements OnInit {
+ *
+ *   constructor(private fingerprintjsProAngularService: FingerprintjsProAngularService) { }
+ * //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ *   visitorId = 'Press "Identify" button to get visitorId';
+ *
+ *   async onIdentifyButtonClick() : Promise<void> {
+ *     const data = await this.fingerprintjsProAngularService.getVisitorData();
+ * //  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ *     this.visitorId = data.visitorId;
+ *     this.extendedResult = data;
+ *   }
+ * }
+ * ```
+ */
 @Injectable({
   providedIn: 'root',
 })
