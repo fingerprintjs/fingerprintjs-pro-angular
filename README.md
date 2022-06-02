@@ -6,6 +6,11 @@
 <a href="https://github.com/fingerprintjs/fingerprintjs-pro-angular/actions/workflows/ci.yml">
   <img src="https://github.com/fingerprintjs/fingerprintjs-pro-angular/actions/workflows/ci.yml/badge.svg" alt="CI badge" />
 </a>
+<a href="https://www.npmjs.com/package/@fingerprintjs/fingerprintjs-pro-angular">
+  <img src="https://img.shields.io/npm/v/@fingerprintjs/fingerprintjs-pro-angular.svg" alt="Current NPM version">
+</a>
+<a href="https://www.npmjs.com/package/@fingerprintjs/fingerprintjs-pro-angular">
+  <img src="https://img.shields.io/npm/dm/@fingerprintjs/fingerprintjs-pro-angular.svg" alt="Monthly downloads from NPM">
 <a href="https://opensource.org/licenses/MIT">
   <img src="https://img.shields.io/:license-mit-blue.svg" alt="MIT license">
 </a>
