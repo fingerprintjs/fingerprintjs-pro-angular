@@ -1,3 +1,9 @@
+#### 0.1.2 (2022-06-03)
+
+##### Chores
+
+*  one more attempt to fix release workflow (65df8f06)
+
 #### 0.1.1 (2022-06-03)
 
 ##### Chores
