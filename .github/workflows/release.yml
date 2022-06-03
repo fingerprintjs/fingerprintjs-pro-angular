@@ -18,6 +18,10 @@ jobs:
           restore-keys: nodemodules-
       - name: Install Node packages
         run: yarn install
+      - name: Generate package version for integration info
+        run: yarn generate:version
+      - name: Lint
+        run: yarn lint
       - name: Build
         run: yarn build
       - name: Add docs to package folder

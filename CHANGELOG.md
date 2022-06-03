@@ -1,3 +1,10 @@
+#### 0.1.1 (2022-06-03)
+
+##### Chores
+
+*  fix changelog generating for release tasks (e03ba166)
+*  add missed steps for release workflow (172796d5)
+
 ### 0.1.0 (2022-06-03)
 
 ##### Chores
