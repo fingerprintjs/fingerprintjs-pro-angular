@@ -1,3 +1,9 @@
+#### 0.1.3 (2022-06-03)
+
+##### Chores
+
+*  use push strategy for release workflow (92a505eb)
+
 #### 0.1.2 (2022-06-03)
 
 ##### Chores
