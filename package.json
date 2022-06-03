@@ -10,7 +10,10 @@
     "generate:version": "node bin/generate-version.js",
     "lint": "eslint --ext .js,.ts --ignore-path .gitignore --max-warnings 0 .",
     "test:dts": "tsc --noEmit --isolatedModules dist/fingerprintjs-pro-angular/public-api.d.ts",
-    "test": "jest"
+    "test": "jest",
+    "release:major": "changelog -M && git add CHANGELOG.md && yarn version --major --no-git-tag-version",
+    "release:minor": "changelog -m && git add CHANGELOG.md && yarn version --minor --no-git-tag-version",
+    "release:patch": "changelog -p && git add CHANGELOG.md && yarn version --patch --no-git-tag-version"
   },
   "private": true,
   "dependencies": {
@@ -38,6 +41,7 @@
     "eslint": "^8.16.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
+    "generate-changelog": "^1.8.0",
     "jasmine-core": "~4.0.0",
     "jest": "^28.1.0",
     "jest-preset-angular": "^12.0.1",
