@@ -9,7 +9,7 @@ import { FingerprintjsProAngularModule } from '@fingerprintjs/fingerprintjs-pro-
 @NgModule({
   declarations: [AppComponent, HomeComponent],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     FingerprintjsProAngularModule.forRoot({
       loadOptions: { apiKey: environment.fingerprintJsProPublicKey },
     }),
