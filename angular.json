@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/fingerprintjs-pro-angular-demo",
+            "outputPath": "dist/fingerprintjs-pro-angular-demo/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -107,6 +107,70 @@
             ],
             "scripts": []
           }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/fingerprintjs-pro-angular-demo/server",
+            "main": "server.ts",
+            "tsConfig": "tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media",
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ]
+            },
+            "development": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.dev.ts"
+                }
+              ],
+              "optimization": false,
+              "sourceMap": true,
+              "extractLicenses": false
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "configurations": {
+            "development": {
+              "browserTarget": "fingerprintjs-pro-angular-demo:build:development",
+              "serverTarget": "fingerprintjs-pro-angular-demo:server:development"
+            },
+            "production": {
+              "browserTarget": "fingerprintjs-pro-angular-demo:build:production",
+              "serverTarget": "fingerprintjs-pro-angular-demo:server:production"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "routes": [
+              "/"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "fingerprintjs-pro-angular-demo:build:production",
+              "serverTarget": "fingerprintjs-pro-angular-demo:server:production"
+            },
+            "development": {
+              "browserTarget": "fingerprintjs-pro-angular-demo:build:development",
+              "serverTarget": "fingerprintjs-pro-angular-demo:server:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     },

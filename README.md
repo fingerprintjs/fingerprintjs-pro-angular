@@ -97,6 +97,10 @@ export class HomeComponent implements OnInit {
 }
 ```
 
+## Server-side rendering (SSR) with Angular Universal
+
+The library is tested with an SSR scenario and the demo showcases this use case.
+
 ## Caching strategy
 :warning: **WARNING** If you use data from `extendedResult`, please pay additional attention to caching strategy.
 
