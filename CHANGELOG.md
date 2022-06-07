@@ -1,3 +1,15 @@
+## 1.0.0 (2022-06-07)
+
+##### Documentation Changes
+
+*  update contributing instruction (20200bb4)
+*  add in readme info that library supports Angular Universal (58f9dd99)
+
+##### New Features
+
+*  add to demo component that loads visitorDate in constructor (ca5cfcc0)
+*  add nguniversal to the demo project (cf47d4bf)
+
 #### 0.1.3 (2022-06-03)
 
 ##### Chores
