@@ -1,3 +1,9 @@
+#### 1.0.1 (2022-06-10)
+
+##### Chores
+
+*  set up supported angular version >=13.0.0 (5bdb7fdc)
+
 ## 1.0.0 (2022-06-07)
 
 ##### Documentation Changes

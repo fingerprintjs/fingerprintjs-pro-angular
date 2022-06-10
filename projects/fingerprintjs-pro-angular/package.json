@@ -1,6 +1,6 @@
 {
   "name": "@fingerprintjs/fingerprintjs-pro-angular",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "FingerprintJS Pro Angular SDK",
   "keywords": [
     "fraud",
@@ -21,8 +21,8 @@
   },
   "homepage": "https://github.com/fingerprintjs/fingerprintjs-pro-angular#readme",
   "peerDependencies": {
-    "@angular/common": "^13.3.0",
-    "@angular/core": "^13.3.0"
+    "@angular/common": ">=13.0.0",
+    "@angular/core": ">=13.0.0"
   },
   "dependencies": {
     "@fingerprintjs/fingerprintjs-pro-spa": "0.4.0",
