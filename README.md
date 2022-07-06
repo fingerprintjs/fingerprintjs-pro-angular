@@ -102,11 +102,11 @@ export class HomeComponent implements OnInit {
 The library is tested with an SSR scenario and the demo showcases this use case.
 
 ## Caching strategy
+When you use FingerprintJS Pro, you pay for each API call. Our [best practices](https://dev.fingerprint.com/docs/caching-visitor-information) recommend using cache to reduce the API call rate. The Library uses the SessionStorage cache strategy by default.
+
 :warning: **WARNING** If you use data from `extendedResult`, please pay additional attention to caching strategy.
 
-FingerprintJS Pro uses API calls as the basis for billing. Our [best practices](https://dev.fingerprintjs.com/docs/caching-visitor-information) strongly recommend using cache to optimise API calls rate. The Library uses the SessionStorage cache strategy by default.
-
-Some fields from the [extendedResult](https://dev.fingerprintjs.com/docs/js-agent#extendedresult) (e.g `ip` or `lastSeenAt`) might change for the same visitor. If you need exact current data, it is recommended to pass `ignoreCache=true` inside [getVisitorData](#getvisitordatagetoptions-getoptions) function.
+Some fields from the [extendedResult](https://dev.fingerprint.com/docs/js-agent#extendedresult) (e.g `ip` or `lastSeenAt`) might change for the same visitor. If you need to get the current data, it is recommended to pass `ignoreCache=true` inside [getVisitorData](#getvisitordataignorecache-boolean-options-getoptionstextended) function.
 
 ## Documentation
 
