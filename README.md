@@ -1,6 +1,5 @@
 <p align="center">
   <a href="https://fingerprint.com">
-    <img src="https://raw.githubusercontent.com/fingerprintjs/fingerprintjs-pro-angular/main/res/logo.svg" alt="FingerprintJS" width="312px" />
     <picture>
      <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/fingerprintjs/fingerprintjs-pro-angular/main/res/logo_light.svg" />
      <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/fingerprintjs/fingerprintjs-pro-angular/main/res/logo_dark.svg" />
