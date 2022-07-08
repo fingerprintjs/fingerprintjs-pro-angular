@@ -1,3 +1,11 @@
+#### 1.0.2 (2022-07-08)
+
+##### Documentation Changes
+
+*  update logo (159c8b00)
+*  change domain from fingerprintjs.com to fingerprint.com (c8f2bc92)
+*  update caching warning (a4d5b7c4)
+
 #### 1.0.1 (2022-06-10)
 
 ##### Chores
