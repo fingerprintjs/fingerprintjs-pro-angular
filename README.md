@@ -25,7 +25,7 @@
 
 # FingerprintJS Pro Angular
 
-FingerprintJS Pro Angular is an easy-to-use Angular library for **[FingerprintJS Pro](https://fingerprint.com/)**. An example usage is located in the [src](https://github.com/fingerprintjs/fingerprintjs-pro-react/tree/main/src) folder.  **This package works with FingerprintJS Pro, it is not compatible with [open-source FingerprintJS](https://github.com/fingerprintjs/fingerprintjs).** You can learn more about the difference between FingerprintJS Pro and open-source FingerprintJS in the [official documentation](https://dev.fingerprint.com/docs/pro-vs-open-source).
+FingerprintJS Pro Angular is an easy-to-use Angular library for **[FingerprintJS Pro](https://fingerprint.com/)**. An example usage is located in the [src](https://github.com/fingerprintjs/fingerprintjs-pro-angular/tree/main/src) folder.  **This package works with FingerprintJS Pro, it is not compatible with [open-source FingerprintJS](https://github.com/fingerprintjs/fingerprintjs).** You can learn more about the difference between FingerprintJS Pro and open-source FingerprintJS in the [official documentation](https://dev.fingerprint.com/docs/pro-vs-open-source).
 
 ## Table of contents
 
