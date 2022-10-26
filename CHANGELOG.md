@@ -1,3 +1,13 @@
+### 1.1.0 (2022-10-26)
+
+##### Documentation Changes
+
+*  fix src link in the readme (134b7112)
+
+##### New Features
+
+*  update spa dependency to 0.5.0 (9e532268)
+
 #### 1.0.2 (2022-07-08)
 
 ##### Documentation Changes
