@@ -1,3 +1,10 @@
+## [1.1.0-test.2](https://github.com/fingerprintjs/fingerprintjs-pro-angular/compare/v1.1.0-test.1...v1.1.0-test.2) (2022-11-10)
+
+
+### Bug Fixes
+
+* trigger test release ([d160faa](https://github.com/fingerprintjs/fingerprintjs-pro-angular/commit/d160faa7d8974a42d4965f5a96664fb51ad31bea))
+
 ## [1.1.0-test.1](https://github.com/fingerprintjs/fingerprintjs-pro-angular/compare/v1.0.2...v1.1.0-test.1) (2022-11-10)
 
 
