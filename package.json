@@ -2,9 +2,10 @@
   "name": "fingerprintjs-pro-angular-demo",
   "version": "0.0.0",
   "scripts": {
+    "prepare": "husky install",
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build fingerprintjs-pro-angular",
+    "build": "ng build fingerprintjs-pro-angular && ./bin/copy_assets.sh",
     "watch": "ng build --watch --configuration development",
     "watch:library": "ng build fingerprintjs-pro-angular --watch",
     "dev:ssr": "ng run fingerprintjs-pro-angular-demo:serve-ssr",
@@ -15,9 +16,7 @@
     "lint": "eslint --ext .js,.ts --ignore-path .gitignore --max-warnings 0 .",
     "test:dts": "tsc --noEmit --isolatedModules dist/fingerprintjs-pro-angular/fingerprintjs-fingerprintjs-pro-angular.d.ts",
     "test": "jest",
-    "release:major": "cd projects/fingerprintjs-pro-angular && changelog -M --file ../../CHANGELOG.md && git add ../../CHANGELOG.md && yarn version --major --no-git-tag-version",
-    "release:minor": "cd projects/fingerprintjs-pro-angular && changelog -m --file ../../CHANGELOG.md && git add ../../CHANGELOG.md && yarn version --minor --no-git-tag-version",
-    "release:patch": "cd projects/fingerprintjs-pro-angular && changelog -p --file ../../CHANGELOG.md && git add ../../CHANGELOG.md && yarn version --patch --no-git-tag-version"
+    "semantic-release": "semantic-release"
   },
   "private": true,
   "dependencies": {
@@ -41,22 +40,43 @@
     "@angular-eslint/schematics": "^13.2.1",
     "@angular/cli": "~13.3.6",
     "@angular/compiler-cli": "~13.3.0",
+    "@commitlint/cli": "^17.2.0",
+    "@commitlint/config-conventional": "^17.2.0",
     "@nguniversal/builders": "^13.1.1",
+    "@semantic-release/changelog": "^6.0.1",
+    "@semantic-release/exec": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^8.0.6",
+    "@semantic-release/npm": "^9.0.1",
     "@types/express": "^4.17.0",
     "@types/jest": "^27.5.1",
     "@types/node": "^12.11.1",
     "@typescript-eslint/eslint-plugin": "^5.27.0",
     "@typescript-eslint/parser": "^5.27.0",
+    "commitizen": "^4.2.5",
+    "conventional-changelog-conventionalcommits": "^5.0.0",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.16.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
-    "generate-changelog": "^1.8.0",
+    "husky": "^8.0.2",
     "jasmine-core": "~4.0.0",
     "jest": "^28.1.0",
     "jest-preset-angular": "^12.0.1",
+    "lint-staged": "^13.0.3",
     "ng-packagr": "^13.0.0",
     "prettier": "^2.6.2",
+    "semantic-release": "^19.0.5",
     "typescript": "~4.6.2"
+  },
+  "lint-staged": {
+    "*.ts": "yarn run lint:fix",
+    "*.tsx": "yarn run lint:fix"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   },
   "workspaces": [
     "projects/*"

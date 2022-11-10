@@ -2,6 +2,7 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "cli": {
+    "analytics": "a6cb7b38-1d2c-43d9-ad01-261b71d9a104",
     "defaultCollection": "@angular-eslint/schematics"
   },
   "newProjectRoot": "projects",
