@@ -1,3 +1,11 @@
+## [1.1.0-test.1](https://github.com/fingerprintjs/fingerprintjs-pro-angular/compare/v1.0.2...v1.1.0-test.1) (2022-11-10)
+
+
+### Features
+
+* bump SPA package to 0.6.0 ([c4e8785](https://github.com/fingerprintjs/fingerprintjs-pro-angular/commit/c4e87858d1b8ad47588419bcfb65fa97b88fcde0))
+* update spa dependency to 0.5.0 ([9e53226](https://github.com/fingerprintjs/fingerprintjs-pro-angular/commit/9e5322686e64fe8a3ebc704287caa061b8a10e54))
+
 ### 1.1.0 (2022-10-26)
 
 ##### Documentation Changes
@@ -99,4 +107,3 @@
 
 *  update logo (895710e0)
 *  wait client init inside getVisitorData (5fe482bd)
-
