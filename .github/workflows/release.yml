@@ -7,12 +7,14 @@ on:
 
 jobs:
   npm-publish:
-    name: npm-publish
+    name: release
     runs-on: ubuntu-latest
     environment: production
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          persist-credentials: false
       - name: Cache
         uses: actions/cache@v2
         with:
@@ -31,7 +33,7 @@ jobs:
         run: yarn test:dts
       - name: Run tests
         run: yarn test
-      - name: Publish if version has been updated
+      - name: Publish
         run: yarn semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GH_RELEASE_TOKEN }}
