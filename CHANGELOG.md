@@ -1,3 +1,10 @@
+## [1.1.0-test.3](https://github.com/fingerprintjs/fingerprintjs-pro-angular/compare/v1.1.0-test.2...v1.1.0-test.3) (2022-11-17)
+
+
+### Bug Fixes
+
+* bump SPA package to 0.7.0 ([71587c7](https://github.com/fingerprintjs/fingerprintjs-pro-angular/commit/71587c71d46862c62e78574838ce6ee030a764c0))
+
 ## [1.1.0-test.2](https://github.com/fingerprintjs/fingerprintjs-pro-angular/compare/v1.1.0-test.1...v1.1.0-test.2) (2022-11-10)
 
 
