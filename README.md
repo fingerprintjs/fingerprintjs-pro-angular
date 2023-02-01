@@ -92,7 +92,7 @@ export class HomeComponent {
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   
   visitorId = 'Press "Identify" button to get visitorId';
-  extendedResult = {};
+  extendedResult: null | ExtendedGetResult | GetResult = null;
 
   async onIdentifyButtonClick() : Promise<void> {
     const data = await this.fingerprintjsProAngularService.getVisitorData();
