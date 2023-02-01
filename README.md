@@ -86,11 +86,13 @@ import { FingerprintjsProAngularService } from 'fingerprintjs-pro-angular';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
 
-  constructor(private fingerprintjsProAngularService: FingerprintjsProAngularService) { }
+  constructor(private fingerprintjsProAngularService: FingerprintjsProAngularService) {}
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  
   visitorId = 'Press "Identify" button to get visitorId';
+  extendedResult = {};
 
   async onIdentifyButtonClick() : Promise<void> {
     const data = await this.fingerprintjsProAngularService.getVisitorData();
