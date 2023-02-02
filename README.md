@@ -86,11 +86,13 @@ import { FingerprintjsProAngularService } from 'fingerprintjs-pro-angular';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
 
-  constructor(private fingerprintjsProAngularService: FingerprintjsProAngularService) { }
+  constructor(private fingerprintjsProAngularService: FingerprintjsProAngularService) {}
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  
   visitorId = 'Press "Identify" button to get visitorId';
+  extendedResult: null | ExtendedGetResult | GetResult = null;
 
   async onIdentifyButtonClick() : Promise<void> {
     const data = await this.fingerprintjsProAngularService.getVisitorData();
@@ -153,7 +155,20 @@ This method performs identification requests with the FingerprintJS Pro API. The
 
 #### `clearCache`
 
-Method clears the cache for current caching strategy. 
+Method clears the cache for current caching strategy.
+
+## Demo application
+
+This repository contains an example Angular application. To run the demo locally: 
+
+1. Clone the repository with `git clone git@github.com:fingerprintjs/fingerprintjs-pro-angular.git`.
+2. Inside the root folder, run `yarn install` to install the dependencies.
+3. Create a dev environment file with `cp src/environments/environment.ts src/environments/environment.dev.ts`, and inside, replace `FingerprintJS Pro public key` with your actual public key. 
+4. Run `yarn generate:version` to create an SDK version file.
+5. Run `yarn build` to build the SDK package.
+5. Run `yarn start` to start the demo application.
+
+The application will start on http://localhost:4200.
 
 ## Support and feedback
 For support or to provide feedback, please [raise an issue on our issue tracker](https://github.com/fingerprintjs/fingerprintjs-pro-angular/issues). If you require private support, please email us at oss-support@fingerprint.com. If you'd like to have a similar Angular library for the [open-source FingerprintJS](https://github.com/fingerprintjs/fingerprintjs), consider [raising an issue in our issue tracker](https://github.com/fingerprintjs/fingerprintjs-pro-angular/issues).
