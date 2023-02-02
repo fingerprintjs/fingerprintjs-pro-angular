@@ -1,3 +1,12 @@
+## [1.1.1](https://github.com/fingerprintjs/fingerprintjs-pro-angular/compare/v1.1.0...v1.1.1) (2023-02-02)
+
+
+### Documentation
+
+* **README:** add instructions how to run example app ([a5b52e8](https://github.com/fingerprintjs/fingerprintjs-pro-angular/commit/a5b52e85b415254d2c4699461bc38e1fa81e8dd3))
+* **README:** clean-up code example ([bb06ed8](https://github.com/fingerprintjs/fingerprintjs-pro-angular/commit/bb06ed8ba2a314a1e12b183884ebd20a82d697ce))
+* **README:** type extenderResult in README example ([d13b15f](https://github.com/fingerprintjs/fingerprintjs-pro-angular/commit/d13b15ff2fc4837104471ecc029209ae4f3a1fc6))
+
 ## [1.1.0](https://github.com/fingerprintjs/fingerprintjs-pro-angular/compare/v1.0.2...v1.1.0) (2022-11-17)
 
 
