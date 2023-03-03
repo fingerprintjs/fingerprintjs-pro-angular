@@ -78,7 +78,7 @@ export class AppModule { }
 2. Inject service `FingerprintjsProAngularService` in your component's constructor. Now you can identify visitor using `getVisitorData()` method from the service.
 
 ```typescript
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FingerprintjsProAngularService } from 'fingerprintjs-pro-angular';
 
 @Component({
