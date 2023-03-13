@@ -59,7 +59,7 @@ You can learn more about API keys in the [official FingerprintJS Pro documentati
 
 ```javascript
 import { NgModule } from '@angular/core';
-import { FingerprintjsProAngularModule } from 'fingerprintjs-pro-angular';
+import { FingerprintjsProAngularModule } from '@fingerprintjs/fingerprintjs-pro-angular';
 // ...
 
 @NgModule({
@@ -78,8 +78,8 @@ export class AppModule { }
 2. Inject service `FingerprintjsProAngularService` in your component's constructor. Now you can identify visitor using `getVisitorData()` method from the service.
 
 ```typescript
-import { Component, OnInit } from '@angular/core';
-import { FingerprintjsProAngularService } from 'fingerprintjs-pro-angular';
+import { Component } from '@angular/core';
+import { FingerprintjsProAngularService } from '@fingerprintjs/fingerprintjs-pro-angular';
 
 @Component({
   selector: 'app-home',
@@ -90,7 +90,7 @@ export class HomeComponent {
 
   constructor(private fingerprintjsProAngularService: FingerprintjsProAngularService) {}
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  
+
   visitorId = 'Press "Identify" button to get visitorId';
   extendedResult: null | ExtendedGetResult | GetResult = null;
 
@@ -159,14 +159,14 @@ Method clears the cache for current caching strategy.
 
 ## Demo application
 
-This repository contains an example Angular application. To run the demo locally: 
+This repository contains an example Angular application. To run the demo locally:
 
 1. Clone the repository with `git clone git@github.com:fingerprintjs/fingerprintjs-pro-angular.git`.
 2. Inside the root folder, run `yarn install` to install the dependencies.
-3. Create a dev environment file with `cp src/environments/environment.ts src/environments/environment.dev.ts`, and inside, replace `FingerprintJS Pro public key` with your actual public key. 
+3. Create a dev environment file with `cp src/environments/environment.ts src/environments/environment.dev.ts`, and inside, replace `FingerprintJS Pro public key` with your actual public key.
 4. Run `yarn generate:version` to create an SDK version file.
 5. Run `yarn build` to build the SDK package.
-5. Run `yarn start` to start the demo application.
+6. Run `yarn start` to start the demo application.
 
 The application will start on http://localhost:4200.
 
