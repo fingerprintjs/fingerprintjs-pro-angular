@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/fingerprintjs/fingerprintjs-pro-angular/compare/v1.1.1...v1.1.2) (2023-03-13)
+
+
+### Bug Fixes
+
+* precommit hook ([f9ce5c8](https://github.com/fingerprintjs/fingerprintjs-pro-angular/commit/f9ce5c85873acb8cc84cb242a3b279b56b9d6093))
+
 ## [1.1.1](https://github.com/fingerprintjs/fingerprintjs-pro-angular/compare/v1.1.0...v1.1.1) (2023-02-02)
 
 
