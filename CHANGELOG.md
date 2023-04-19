@@ -1,3 +1,10 @@
+## [1.1.3](https://github.com/fingerprintjs/fingerprintjs-pro-angular/compare/v1.1.2...v1.1.3) (2023-04-19)
+
+
+### Bug Fixes
+
+* bump `@fingerprintjs/fingerprintjs-pro-spa` to v1.0.2 ([a14d48e](https://github.com/fingerprintjs/fingerprintjs-pro-angular/commit/a14d48e83903e88b91eb8694ff77ef000aa80353))
+
 ## [1.1.2](https://github.com/fingerprintjs/fingerprintjs-pro-angular/compare/v1.1.1...v1.1.2) (2023-03-13)
 
 
