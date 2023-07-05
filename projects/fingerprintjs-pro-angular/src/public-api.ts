@@ -15,4 +15,7 @@ export {
   LoadOptions,
   GetResult,
   ExtendedGetResult,
+  defaultEndpoint,
+  defaultScriptUrlPattern,
+  defaultTlsEndpoint,
 } from '@fingerprintjs/fingerprintjs-pro-spa';
