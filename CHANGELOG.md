@@ -1,3 +1,10 @@
+## [1.2.0](https://github.com/fingerprintjs/fingerprintjs-pro-angular/compare/v1.1.3...v1.2.0) (2023-07-06)
+
+
+### Features
+
+* reexport defaultEndpoint, defaultScriptUrlPattern, defaultTlsEndpoint ([9f78e8a](https://github.com/fingerprintjs/fingerprintjs-pro-angular/commit/9f78e8ac24c62f9be9fc07e18805a9a5c47b4569))
+
 ## [1.1.3](https://github.com/fingerprintjs/fingerprintjs-pro-angular/compare/v1.1.2...v1.1.3) (2023-04-19)
 
 
