@@ -78,7 +78,7 @@ import {
         apiKey: 'your-fpjs-public-api-key',
         // region: 'eu',
         // endpoint: ['metrics.yourwebsite.com', defaultEndpoint],
-        // scriptUrlPattern: ['metrics.yourwebsite.com/agent-path', 
+        // scriptUrlPattern: ['metrics.yourwebsite.com/agent-path', defaultScriptUrlPattern],
       }
     })
   ],
