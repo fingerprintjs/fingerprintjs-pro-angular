@@ -1,3 +1,10 @@
+## [1.1.0-test.4](https://github.com/fingerprintjs/fingerprintjs-pro-angular/compare/v1.1.0-test.3...v1.1.0-test.4) (2023-07-27)
+
+
+### Features
+
+* test release pipeline ([8e256e5](https://github.com/fingerprintjs/fingerprintjs-pro-angular/commit/8e256e594dee61e5bf41c08048d465eb02930526))
+
 ## [1.1.0-test.3](https://github.com/fingerprintjs/fingerprintjs-pro-angular/compare/v1.1.0-test.2...v1.1.0-test.3) (2022-11-17)
 
 
