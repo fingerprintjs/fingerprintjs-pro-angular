@@ -17,6 +17,7 @@
     "lint:fix": "eslint --ext .js,.ts --ignore-path .gitignore --max-warnings 0 --fix .",
     "test:dts": "tsc --noEmit --isolatedModules dist/fingerprintjs-pro-angular/fingerprintjs-fingerprintjs-pro-angular.d.ts",
     "test": "jest",
+    "test:coverage": "jest --coverage",
     "semantic-release": "semantic-release"
   },
   "private": true,
