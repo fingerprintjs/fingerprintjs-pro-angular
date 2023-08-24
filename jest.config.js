@@ -4,7 +4,7 @@ module.exports = {
   roots: ['projects/fingerprintjs-pro-angular/src/'],
   setupFilesAfterEnv: ['./test.ts'],
   testRegex: '.+spec.ts$',
-  collectCoverageFrom: ['./src/**/**.{ts,tsx}'],
+  collectCoverageFrom: ['projects/fingerprintjs-pro-angular/**/**.{ts,tsx}'],
   coverageReporters: [
     'lcov',
     'json-summary',
