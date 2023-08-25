@@ -4,6 +4,8 @@
 
 export * from './lib/fingerprintjs-pro-angular.service';
 export * from './lib/fingerprintjs-pro-angular.module';
+export * from './lib/interfaces/i-fingerprintjs-pro-settings';
+
 export {
   CacheLocation,
   Cacheable,
@@ -18,4 +20,5 @@ export {
   defaultEndpoint,
   defaultScriptUrlPattern,
   defaultTlsEndpoint,
+  FpjsClientOptions,
 } from '@fingerprintjs/fingerprintjs-pro-spa';

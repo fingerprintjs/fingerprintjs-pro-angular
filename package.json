@@ -17,7 +17,8 @@
     "lint:fix": "eslint --ext .js,.ts --ignore-path .gitignore --max-warnings 0 --fix .",
     "test:dts": "tsc --noEmit --isolatedModules dist/fingerprintjs-pro-angular/fingerprintjs-fingerprintjs-pro-angular.d.ts",
     "test": "jest",
-    "test:coverage": "jest --coverage"
+    "test:coverage": "jest --coverage",
+    "docs": "typedoc projects/fingerprintjs-pro-angular/src/public-api.ts --out docs"
   },
   "private": true,
   "dependencies": {
@@ -62,6 +63,7 @@
     "lint-staged": "^13.0.3",
     "ng-packagr": "^13.0.0",
     "prettier": "^2.6.2",
+    "typedoc": "^0.24.8",
     "typescript": "~4.6.2"
   },
   "lint-staged": {
