@@ -9,3 +9,5 @@ jobs:
   generate-docs-and-coverage:
     name: Generate docs and coverage report
     uses: fingerprintjs/dx-team-toolkit/.github/workflows/docs-and-coverage.yml@v1
+    with:
+      run-after-install: yarn generate:version
