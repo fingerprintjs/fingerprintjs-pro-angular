@@ -10,6 +10,9 @@
 <a href="https://github.com/fingerprintjs/fingerprintjs-pro-angular/actions/workflows/ci.yml">
   <img src="https://github.com/fingerprintjs/fingerprintjs-pro-angular/actions/workflows/ci.yml/badge.svg" alt="CI badge" />
 </a>
+<a href="https://fingerprintjs.github.io/fingerprintjs-pro-angular/coverage/">
+ <img src="https://fingerprintjs.github.io/fingerprintjs-pro-angular/coverage/badges.svg" alt="coverage">
+</a>
 <a href="https://www.npmjs.com/package/@fingerprintjs/fingerprintjs-pro-angular">
   <img src="https://img.shields.io/npm/v/@fingerprintjs/fingerprintjs-pro-angular.svg" alt="Current NPM version">
 </a>
@@ -20,6 +23,9 @@
 </a>
 <a href="https://discord.gg/39EpE2neBg">
   <img src="https://img.shields.io/discord/852099967190433792?style=logo&label=Discord&logo=Discord&logoColor=white" alt="Discord server">
+</a>
+<a href="https://fingerprintjs.github.io/fingerprintjs-pro-angular/">
+  <img src="https://img.shields.io/badge/-Documentation-green" alt="Documentation">
 </a>
 
 
@@ -185,8 +191,11 @@ This repository contains an example Angular application. To run the demo locally
 The application will start on http://localhost:4200.
 
 ## Support and feedback
-To ask questions or provide feedback, use [Issues](https://github.com/fingerprintjs/fingerprintjs-pro-react/issues). If you need private support, please email us at `oss-support@fingerprint.com`. If you'd like to have a similar Angular wrapper for the [open-source FingerprintJS](https://github.com/fingerprintjs/fingerprintjs), consider creating an issue in the main [FingerprintJS repository](https://github.com/fingerprintjs/fingerprintjs/issues).
+To ask questions or provide feedback, use [Issues](https://github.com/fingerprintjs/fingerprintjs-pro-angular/issues). If you need private support, please email us at `oss-support@fingerprint.com`. If you'd like to have a similar Angular wrapper for the [open-source FingerprintJS](https://github.com/fingerprintjs/fingerprintjs), consider creating an issue in the main [FingerprintJS repository](https://github.com/fingerprintjs/fingerprintjs/issues).
 
+## API Reference
+
+See the full [generated API reference](https://fingerprintjs.github.io/fingerprintjs-pro-angular/).
 
 ## License
 
