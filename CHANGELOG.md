@@ -1,3 +1,18 @@
+## [1.2.1](https://github.com/fingerprintjs/fingerprintjs-pro-angular/compare/v1.2.0...v1.2.1) (2023-09-15)
+
+
+### Bug Fixes
+
+* bump spa package version to 1.1.2 ([859b36e](https://github.com/fingerprintjs/fingerprintjs-pro-angular/commit/859b36ec07d789f6db335774af5c5a02cc70338c))
+
+
+### Documentation
+
+* **README:** add api reference ([c4a4ddf](https://github.com/fingerprintjs/fingerprintjs-pro-angular/commit/c4a4ddfe18becfb5a9c743cc05cd09929a62ed9e))
+* **README:** add coverage badge ([ab53f9b](https://github.com/fingerprintjs/fingerprintjs-pro-angular/commit/ab53f9b2d3ced1d8968ce1987243f838d673bb4b))
+* **README:** add documentation badge ([144a160](https://github.com/fingerprintjs/fingerprintjs-pro-angular/commit/144a160ca945ab36cd49f4dbcea872b5b786c53a))
+* **README:** add fallback endpoints and polish ([2777a44](https://github.com/fingerprintjs/fingerprintjs-pro-angular/commit/2777a449db2cf7f64a248fb83e7703dd588ad3f7))
+
 ## [1.2.0](https://github.com/fingerprintjs/fingerprintjs-pro-angular/compare/v1.1.3...v1.2.0) (2023-07-06)
 
 
