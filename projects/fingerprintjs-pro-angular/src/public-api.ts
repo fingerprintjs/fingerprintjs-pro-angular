@@ -21,4 +21,5 @@ export {
   defaultScriptUrlPattern,
   defaultTlsEndpoint,
   FpjsClientOptions,
+  FingerprintJSPro,
 } from '@fingerprintjs/fingerprintjs-pro-spa';
