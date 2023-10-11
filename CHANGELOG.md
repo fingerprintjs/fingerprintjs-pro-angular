@@ -1,3 +1,10 @@
+## [1.3.0](https://github.com/fingerprintjs/fingerprintjs-pro-angular/compare/v1.2.1...v1.3.0) (2023-10-11)
+
+
+### Features
+
+* update @fingerprintjs/fingerprintjs-pro-spa to 1.2.0, add FingerprintJSPro export ([05c8260](https://github.com/fingerprintjs/fingerprintjs-pro-angular/commit/05c8260c07472e9d6617968d8ce24ae06d464e6d))
+
 ## [1.2.1](https://github.com/fingerprintjs/fingerprintjs-pro-angular/compare/v1.2.0...v1.2.1) (2023-09-15)
 
 
