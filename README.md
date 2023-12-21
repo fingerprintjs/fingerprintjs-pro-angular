@@ -49,7 +49,7 @@ Fingerprint Pro Angular SDK is an easy way to integrate  **[Fingerprint Pro](htt
 
 The following dependencies are required:
 
-- TypeScript >=4.6 and <= 5.2
+- TypeScript >=4.6
 - Node 16+
 - Angular 13+
 - RxJS 7.5+
