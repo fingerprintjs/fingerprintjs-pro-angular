@@ -52,7 +52,6 @@ The following dependencies are required:
 - TypeScript >=4.6
 - Node 16+
 - Angular 13+
-- RxJS 7.5+
 
 ## Installation
 
