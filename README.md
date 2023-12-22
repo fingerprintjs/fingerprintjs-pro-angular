@@ -37,12 +37,21 @@ Fingerprint Pro Angular SDK is an easy way to integrate  **[Fingerprint Pro](htt
 
 ## Table of contents
 
+- [Requirements](#requirements)
 - [Installation](#installation)
 - [Getting started](#getting-started)
 - [Caching strategy](#caching-strategy)
 - [Documentation](#documentation)
 - [Support and feedback](#support-and-feedback)
 - [License](#license)
+
+## Requirements
+
+The following dependencies are required:
+
+- TypeScript >=4.6
+- Node 16+
+- Angular 13+
 
 ## Installation
 
