@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   fingerprintJsProPublicKey: 'FingerprintJS Pro public key',
-};
+}
 
 /*
  * For easier debugging in development mode, you can import the following file

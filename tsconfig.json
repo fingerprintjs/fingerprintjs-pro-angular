@@ -1,6 +1,7 @@
 /* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
   "compileOnSave": false,
+  "extends": "@fingerprintjs/tsconfig-dx-team/tsconfig.json",
   "compilerOptions": {
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
