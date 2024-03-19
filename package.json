@@ -15,7 +15,7 @@
     "generate:version": "node bin/generate-version.js",
     "lint": "eslint --ext .js,.ts --ignore-path .gitignore --max-warnings 0 .",
     "lint:fix": "eslint --ext .js,.ts --ignore-path .gitignore --max-warnings 0 --fix .",
-    "test:dts": "tsc --noEmit --isolatedModules dist/fingerprintjs-pro-angular/fingerprintjs-fingerprintjs-pro-angular.d.ts",
+    "test:dts": "tsc --noEmit --isolatedModules dist/fingerprintjs-pro-angular/index.d.ts",
     "test": "jest",
     "test:coverage": "jest --coverage",
     "docs": "typedoc projects/fingerprintjs-pro-angular/src/public-api.ts --out docs"
@@ -31,6 +31,7 @@
     "@angular/platform-browser-dynamic": "^15.2.10",
     "@angular/platform-server": "^15.2.10",
     "@angular/router": "^15.2.10",
+    "@fingerprintjs/fingerprintjs-pro-spa": "^1.2.0",
     "@nguniversal/express-engine": "^15.2.1",
     "express": "^4.15.2",
     "rxjs": "~7.5.0",
