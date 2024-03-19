@@ -40,7 +40,7 @@ export class FingerprintjsProAngularService {
 
   constructor(
     @Inject(FINGERPTINTJS_PRO_ANGULAR_SETTINGS_TOKEN)
-    private readonly settings: IFingerprintjsProSettings
+    settings: IFingerprintjsProSettings
   ) {
     const { loadOptions } = settings.clientOptions
     const clientOptions = {
