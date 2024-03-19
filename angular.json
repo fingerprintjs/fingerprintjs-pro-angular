@@ -3,7 +3,9 @@
   "version": 1,
   "cli": {
     "analytics": "a6cb7b38-1d2c-43d9-ad01-261b71d9a104",
-    "defaultCollection": "@angular-eslint/schematics"
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   },
   "newProjectRoot": "projects",
   "projects": {
@@ -206,6 +208,5 @@
         }
       }
     }
-  },
-  "defaultProject": "fingerprintjs-pro-angular-demo"
+  }
 }
