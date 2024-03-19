@@ -1,5 +1,5 @@
 import { Inject, Injectable } from '@angular/core'
-import { FpjsClient, GetOptions } from '@fingerprintjs/fingerprintjs-pro-spa'
+import { FpjsClient, FingerprintJSPro } from '@fingerprintjs/fingerprintjs-pro-spa'
 import { FINGERPTINTJS_PRO_ANGULAR_SETTINGS_TOKEN } from './tokens/fingerprintjs-pro-angular-settings-token'
 import { IFingerprintjsProSettings } from './interfaces/i-fingerprintjs-pro-settings'
 import { packageVersion } from './version'
@@ -53,7 +53,10 @@ export class FingerprintjsProAngularService {
     this.fingerprintJsClient = new FpjsClient(clientOptions)
     this.fingerprintJsClientInitPromise = this.fingerprintJsClient.init()
   }
-  async getVisitorData<TExtended extends boolean>(options?: GetOptions<TExtended>, ignoreCache?: boolean) {
+  async getVisitorData<TExtended extends boolean>(
+    options?: FingerprintJSPro.GetOptions<TExtended>,
+    ignoreCache?: boolean
+  ) {
     await this.fingerprintJsClientInitPromise
     return this.fingerprintJsClient.getVisitorData(options, ignoreCache)
   }
