@@ -87,8 +87,6 @@ describe('FingerprintjsProAngularService', () => {
 });
 
 describe('FingerprintjsProAngularService with full params', () => {
-  let service: FingerprintjsProAngularService;
-
   beforeEach(() => {
     init.mockClear();
     getVisitorData.mockClear();
@@ -97,8 +95,7 @@ describe('FingerprintjsProAngularService with full params', () => {
       imports: [FingerprintjsProAngularModule.forRoot(fullOptions)],
     });
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    service = TestBed.inject(FingerprintjsProAngularService);
+    TestBed.inject(FingerprintjsProAngularService);
   });
 
   it('should add integration info', () => {
