@@ -51,7 +51,7 @@ The following dependencies are required:
 
 - TypeScript >=4.6
 - Node 16+
-- Angular 13+
+- Angular 15+
 
 ## Installation
 
