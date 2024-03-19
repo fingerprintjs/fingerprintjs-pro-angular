@@ -15,7 +15,7 @@ const newVersion = process.argv[2] || packageInfo.version
 packageInfo.version = newVersion
 writeFileSync(packageFilePath, JSON.stringify(packageInfo, null, '  '))
 
-const versionContent = `export const packageVersion = '${packageInfo.version}';\n`
+const versionContent = `export const packageVersion = '${packageInfo.version}'\n`
 
 writeFileSync(versionFilePath, versionContent)
 
