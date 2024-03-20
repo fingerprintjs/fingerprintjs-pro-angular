@@ -84,9 +84,6 @@ importers:
       '@fingerprintjs/prettier-config-dx-team':
         specifier: ^0.1.0
         version: 0.1.0
-      '@fingerprintjs/tsconfig-dx-team':
-        specifier: ^0.0.2
-        version: 0.0.2
       '@nguniversal/builders':
         specifier: ^15.2.1
         version: 15.2.1(@angular-devkit/build-angular@15.2.10)(@angular/common@15.2.10)(@angular/core@15.2.10)(@types/express@4.17.13)(typescript@4.9.5)
@@ -2608,10 +2605,6 @@ packages:
     resolution: {integrity: sha512-ZXoyr5yEIMyBHujVa841dz+aHs9vqzRIU2+IpTG7JTZvbwztVeRdNxBGavWC51TtrlC+Q8Gi6Ba/ynZ6/7EYMg==}
     dependencies:
       prettier: 3.2.4
-    dev: true
-
-  /@fingerprintjs/tsconfig-dx-team@0.0.2:
-    resolution: {integrity: sha512-UZceav58WeTru7yYlATCqw5fMGfvDLg/Y3FCmNucfu0ASuJ8WrFIJez+rAwrJ5ibUNpnJS2VW/ZIxCh9Ww9aIw==}
     dev: true
 
   /@gar/promisify@1.1.3:
