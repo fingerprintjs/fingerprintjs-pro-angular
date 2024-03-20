@@ -135,6 +135,39 @@ export class HomeComponent {
 
 The library can be used with Angular Universal. Keep in mind that visitor identification is only possible in the browser, so your visitor identification code should only run client-side. See the example implementation for more details.
 
+## Linking and tagging information
+The `visitorId` provided by Fingerprint Identification is especially useful when combined with information you already know about your users, for example, account IDs, order IDs, etc. To learn more about various applications of the `linkedId` and `tag`, see [Linking and tagging information](https://dev.fingerprint.com/docs/tagging-information).
+
+Associate your data with a visitor ID using the `linkedId` or `tag` parameter of the options object passed into the `useVisitorData()` hook or the `getData` function:
+```ts
+// ...
+
+import { Component } from '@angular/core';
+import { FingerprintjsProAngularService } from '@fingerprintjs/fingerprintjs-pro-angular';
+
+@Component({
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
+})
+export class HomeComponent {
+
+  constructor(private fingerprintjsProAngularService: FingerprintjsProAngularService) {}
+  
+  async onIdentifyButtonClick() : Promise<void> {
+    const data = await this.fingerprintjsProAngularService.getVisitorData({
+      linkedId: "user_1234",
+      tag: {
+        userAction: "login",
+        analyticsId: "UA-5555-1111-1"
+      }
+    });
+    
+    // ...
+  }
+}
+```
+
 ## Caching strategy
 
 Fingerprint Pro usage is billed per API call. To avoid unnecessary API calls, it is a good practice to [cache identification results](https://dev.fingerprint.com/docs/caching-visitor-information). By default, the SDK uses `sessionStorage` to cache results. 
