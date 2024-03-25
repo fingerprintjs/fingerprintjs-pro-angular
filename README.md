@@ -1,9 +1,9 @@
 <p align="center">
   <a href="https://fingerprint.com">
     <picture>
-     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/fingerprintjs/fingerprintjs-pro-angular/main/res/logo_light.svg" />
-     <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/fingerprintjs/fingerprintjs-pro-angular/main/res/logo_dark.svg" />
-     <img src="https://raw.githubusercontent.com/fingerprintjs/fingerprintjs-pro-angular/main/res/logo_dark.svg" alt="Fingerprint logo" width="312px" />
+     <source media="(prefers-color-scheme: dark)" srcset="https://fingerprintjs.github.io/home/resources/logo_light.svg" />
+     <source media="(prefers-color-scheme: light)" srcset="https://fingerprintjs.github.io/home/resources/logo_dark.svg" />
+     <img src="https://raw.githubusercontent.com/fingerprintjs/fingerprint-pro-server-api-go-sdk/main/res/logo_dark.svg" alt="Fingerprint logo" width="312px" />
    </picture>
   </a>
 <p align="center">
@@ -51,7 +51,7 @@ The following dependencies are required:
 
 - TypeScript >=4.6
 - Node 16+
-- Angular 13+
+- Angular 15+
 
 ## Installation
 
@@ -134,6 +134,39 @@ export class HomeComponent {
 ## Server-side rendering (SSR) with Angular Universal
 
 The library can be used with Angular Universal. Keep in mind that visitor identification is only possible in the browser, so your visitor identification code should only run client-side. See the example implementation for more details.
+
+## Linking and tagging information
+The `visitorId` provided by Fingerprint Identification is especially useful when combined with information you already know about your users, for example, account IDs, order IDs, etc. To learn more about various applications of the `linkedId` and `tag`, see [Linking and tagging information](https://dev.fingerprint.com/docs/tagging-information).
+
+Associate your data with a visitor ID using the `linkedId` or `tag` parameter of the options object passed into the `useVisitorData()` hook or the `getData` function:
+```ts
+// ...
+
+import { Component } from '@angular/core';
+import { FingerprintjsProAngularService } from '@fingerprintjs/fingerprintjs-pro-angular';
+
+@Component({
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
+})
+export class HomeComponent {
+
+  constructor(private fingerprintjsProAngularService: FingerprintjsProAngularService) {}
+  
+  async onIdentifyButtonClick() : Promise<void> {
+    const data = await this.fingerprintjsProAngularService.getVisitorData({
+      linkedId: "user_1234",
+      tag: {
+        userAction: "login",
+        analyticsId: "UA-5555-1111-1"
+      }
+    });
+    
+    // ...
+  }
+}
+```
 
 ## Caching strategy
 

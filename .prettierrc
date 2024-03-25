@@ -1,8 +1,1 @@
-{
-  "tabWidth": 2,
-  "useTabs": false,
-  "singleQuote": true,
-  "trailingComma": "all",
-  "bracketSpacing": true,
-  "arrowParens": "always"
-}
+"@fingerprintjs/prettier-config-dx-team"

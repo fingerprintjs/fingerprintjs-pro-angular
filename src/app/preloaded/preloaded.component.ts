@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FingerprintjsProAngularService } from '@fingerprintjs/fingerprintjs-pro-angular';
+import { Component, OnInit } from '@angular/core'
+import { FingerprintjsProAngularService } from '@fingerprintjs/fingerprintjs-pro-angular'
 
 @Component({
   selector: 'app-preloaded',
@@ -7,15 +7,11 @@ import { FingerprintjsProAngularService } from '@fingerprintjs/fingerprintjs-pro
   styleUrls: ['./preloaded.component.css'],
 })
 export class PreloadedComponent implements OnInit {
-  constructor(
-    private fingerprintjsProAngularService: FingerprintjsProAngularService,
-  ) {
-    fingerprintjsProAngularService
-      .getVisitorData()
-      .then((visitorData) => (this.visitorId = visitorData.visitorId));
+  constructor(private fingerprintjsProAngularService: FingerprintjsProAngularService) {
+    fingerprintjsProAngularService.getVisitorData().then((visitorData) => (this.visitorId = visitorData.visitorId))
   }
 
-  visitorId = 'Loading visitorId...';
+  visitorId = 'Loading visitorId...'
 
   ngOnInit(): void {}
 }
