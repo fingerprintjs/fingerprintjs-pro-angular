@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">93.75% </span>
+                <span class="strong">92.85% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>15/16</span>
+                <span class='fraction'>13/14</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">92.85% </span>
+                <span class="strong">92.3% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>13/14</span>
+                <span class='fraction'>12/13</span>
             </div>
         
             
@@ -129,10 +129,7 @@
 <a name='L64'></a><a href='#L64'>64</a>
 <a name='L65'></a><a href='#L65'>65</a>
 <a name='L66'></a><a href='#L66'>66</a>
-<a name='L67'></a><a href='#L67'>67</a>
-<a name='L68'></a><a href='#L68'>68</a>
-<a name='L69'></a><a href='#L69'>69</a>
-<a name='L70'></a><a href='#L70'>70</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L67'></a><a href='#L67'>67</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -169,18 +166,15 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -201,11 +195,11 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Inject, Injectable } from '@angular/core';
-import { FpjsClient, GetOptions } from '@fingerprintjs/fingerprintjs-pro-spa';
-import { FINGERPTINTJS_PRO_ANGULAR_SETTINGS_TOKEN } from './tokens/fingerprintjs-pro-angular-settings-token';
-import { IFingerprintjsProSettings } from './interfaces/i-fingerprintjs-pro-settings';
-import { packageVersion } from './version';
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Inject, Injectable } from '@angular/core'
+import { FpjsClient, FingerprintJSPro } from '@fingerprintjs/fingerprintjs-pro-spa'
+import { FINGERPTINTJS_PRO_ANGULAR_SETTINGS_TOKEN } from './tokens/fingerprintjs-pro-angular-settings-token'
+import { IFingerprintjsProSettings } from './interfaces/i-fingerprintjs-pro-settings'
+import { packageVersion } from './version'
 &nbsp;
 /**
  * Inject FingerprintjsProAngularService and use it to make identification requests.
@@ -238,36 +232,33 @@ import { packageVersion } from './version';
   providedIn: 'root',
 })
 export class FingerprintjsProAngularService {
-  private fingerprintJsClient: FpjsClient;
-  private readonly fingerprintJsClientInitPromise: Promise&lt;Object&gt;;
+  private fingerprintJsClient: FpjsClient
+  private readonly fingerprintJsClientInitPromise: Promise&lt;Object&gt;
 &nbsp;
   constructor(
     @Inject(FINGERPTINTJS_PRO_ANGULAR_SETTINGS_TOKEN)
-    private readonly settings: IFingerprintjsProSettings,
+    settings: IFingerprintjsProSettings
   ) {
-    const { loadOptions } = settings.clientOptions;
+    const { loadOptions } = settings.clientOptions
     const clientOptions = {
       ...settings.clientOptions,
       loadOptions: {
         ...loadOptions,
-        integrationInfo: [
-          ...(loadOptions.integrationInfo || []),
-          `fingerprintjs-pro-angular/${packageVersion}`,
-        ],
+        integrationInfo: [...(loadOptions.integrationInfo || []), `fingerprintjs-pro-angular/${packageVersion}`],
       },
-    };
-    this.fingerprintJsClient = new FpjsClient(clientOptions);
-    this.fingerprintJsClientInitPromise = this.fingerprintJsClient.init();
+    }
+    this.fingerprintJsClient = new FpjsClient(clientOptions)
+    this.fingerprintJsClientInitPromise = this.fingerprintJsClient.init()
   }
   async getVisitorData&lt;TExtended extends boolean&gt;(
-    options?: GetOptions&lt;TExtended&gt;,
-    ignoreCache?: boolean,
+    options?: FingerprintJSPro.GetOptions&lt;TExtended&gt;,
+    ignoreCache?: boolean
   ) {
-    await this.fingerprintJsClientInitPromise;
-    return this.fingerprintJsClient.getVisitorData(options, ignoreCache);
+    await this.fingerprintJsClientInitPromise
+    return this.fingerprintJsClient.getVisitorData(options, ignoreCache)
   }
 <span class="fstat-no" title="function not covered" >  clearCache(</span>) {
-<span class="cstat-no" title="statement not covered" >    return this.fingerprintJsClient.clearCache();</span>
+<span class="cstat-no" title="statement not covered" >    return this.fingerprintJsClient.clearCache()</span>
   }
 }
 &nbsp;</pre></td></tr></table></pre>
@@ -277,7 +268,7 @@ export class FingerprintjsProAngularService {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Mon Mar 25 2024 04:29:54 GMT+0000 (Coordinated Universal Time)
+                at Mon Mar 25 2024 10:47:38 GMT+0000 (Coordinated Universal Time)
             </div>
         <script src="../../prettify.js"></script>
         <script>
