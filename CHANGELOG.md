@@ -1,3 +1,16 @@
+## [2.0.0](https://github.com/fingerprintjs/fingerprintjs-pro-angular/compare/v1.3.0...v2.0.0) (2024-03-25)
+
+
+### ⚠ BREAKING CHANGES
+
+* change minimum required Angular version to current LTS, which is >=15
+
+### Features
+
+* set minimum Angular version to 15+ ([27c1cf9](https://github.com/fingerprintjs/fingerprintjs-pro-angular/commit/27c1cf9be294d77ee2544e7ce813755282efca95))
+* update @fingerprintjs/fingerprintjs-pro-spa to 1.3.0 ([cb08a86](https://github.com/fingerprintjs/fingerprintjs-pro-angular/commit/cb08a86afef3e74bc1f593353d5ce54f92c50bfb))
+* update @fingerprintjs/fingerprintjs-pro-spa to 1.3.1 ([8485793](https://github.com/fingerprintjs/fingerprintjs-pro-angular/commit/8485793f9b27765d0f9197bb07bda85e66be8a07))
+
 ## [1.3.0](https://github.com/fingerprintjs/fingerprintjs-pro-angular/compare/v1.2.1...v1.3.0) (2023-10-11)
 
 
