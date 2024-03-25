@@ -2,9 +2,9 @@
  * Public API Surface of fingerprintjs-pro-angular
  */
 
-export * from './lib/fingerprintjs-pro-angular.service';
-export * from './lib/fingerprintjs-pro-angular.module';
-export * from './lib/interfaces/i-fingerprintjs-pro-settings';
+export * from './lib/fingerprintjs-pro-angular.service'
+export * from './lib/fingerprintjs-pro-angular.module'
+export * from './lib/interfaces/i-fingerprintjs-pro-settings'
 
 export {
   CacheLocation,
@@ -22,4 +22,4 @@ export {
   defaultTlsEndpoint,
   FpjsClientOptions,
   FingerprintJSPro,
-} from '@fingerprintjs/fingerprintjs-pro-spa';
+} from '@fingerprintjs/fingerprintjs-pro-spa'

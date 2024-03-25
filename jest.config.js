@@ -5,9 +5,5 @@ module.exports = {
   setupFilesAfterEnv: ['./test.ts'],
   testRegex: '.+spec.ts$',
   collectCoverageFrom: ['projects/fingerprintjs-pro-angular/**/**.{ts,tsx}'],
-  coverageReporters: [
-    'lcov',
-    'json-summary',
-    ['text', { file: 'coverage.txt', path: './' }],
-  ],
-};
+  coverageReporters: ['lcov', 'json-summary', ['text', { file: 'coverage.txt', path: './' }]],
+}

@@ -10,7 +10,7 @@ jobs:
     name: 'Build project, run CI checks and publish new release'
     uses: fingerprintjs/dx-team-toolkit/.github/workflows/release-typescript-project.yml@v1
     with:
-      runAfterInstall: yarn generate:version
+      runAfterInstall: pnpm generate:version
       distFolderNeedForRelease: true
     secrets:
       GH_RELEASE_TOKEN: ${{ secrets.GH_RELEASE_TOKEN }}
