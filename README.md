@@ -76,13 +76,11 @@ To get your API key and get started, see the [Quick Start guide in our documenta
 Read more about other [forRoot() parameters](#fingerprintjsproangularmoduleforroot-props) below.
 
 ```javascript
-import { NgModule } from '@angular/core';
+import { NgModule } from '@angular/core'
 import {
   FingerprintjsProAngularModule,
-  // defaultEndpoint,
-  // defaultScriptUrlPattern,
-} from '@fingerprintjs/fingerprintjs-pro-angular';
-// ...
+  FingerprintJSPro
+} from '@fingerprintjs/fingerprintjs-pro-angular'
 
 @NgModule({
   declarations: [AppComponent],
@@ -90,17 +88,23 @@ import {
     BrowserModule,
     FingerprintjsProAngularModule.forRoot({
       loadOptions: {
-        apiKey: 'your-fpjs-public-api-key',
-        // region: 'eu',
-        // endpoint: ['metrics.yourwebsite.com', defaultEndpoint],
-        // scriptUrlPattern: ['metrics.yourwebsite.com/agent-path', defaultScriptUrlPattern],
+        apiKey: "<PUBLIC_API_KEY>",
+        endpoint: [
+          "https://metrics.yourwebsite.com", 
+          FingerprintJSPro.defaultEndpoint
+        ],
+        scriptUrlPattern: [
+          "https://metrics.yourwebsite.com/web/v<version>/<apiKey>/loader_v<loaderVersion>.js",
+          FingerprintJSPro.defaultScriptUrlPattern
+        ],
+        // region: "eu"
       }
-    })
+    }),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
 ```
 
 2. Inject `FingerprintjsProAngularService` in your component's constructor. Now you can identify visitors using the `getVisitorData()` method.
