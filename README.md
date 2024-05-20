@@ -72,15 +72,14 @@ yarn add @fingerprintjs/fingerprintjs-pro-angular
 To identify visitors, you'll need a Fingerprint Pro account (you can [sign up for free](https://dashboard.fingerprint.com/signup/)).
 To get your API key and get started, see the [Quick Start guide in our documentation](https://dev.fingerprint.com/docs/quick-start-guide).
 
-1. Add `FingerprintjsProAngularModule.forRoot()` to the imports sections in your root application module and pass it the `loadOptions` configuration object. You can specify multiple configuration options. Set a [region](https://dev.fingerprint.com/docs/regions) if you have chosen a non-global region during registration. Set `endpoint` and `scriptUrlPattern` if you are using [one of our proxy integrations to increase accuracy](https://dev.fingerprint.com/docs/protecting-the-javascript-agent-from-adblockers) and effectiveness of visitor identification.
+1. Add `FingerprintjsProAngularModule.forRoot()` to the imports sections in your root application module and pass the `loadOptions` configuration object to it. You can specify multiple configuration options. Set a [region](https://dev.fingerprint.com/docs/regions) if you have chosen a non-global region during registration. Set `endpoint` and `scriptUrlPattern` if you are using [one of our proxy integrations to increase accuracy](https://dev.fingerprint.com/docs/protecting-the-javascript-agent-from-adblockers) and effectiveness of visitor identification.
 Read more about other [forRoot() parameters](#fingerprintjsproangularmoduleforroot-props) below.
 
 ```javascript
 import { NgModule } from '@angular/core';
 import {
   FingerprintjsProAngularModule,
-  // defaultEndpoint,
-  // defaultScriptUrlPattern,
+  FingerprintJSPro,
 } from '@fingerprintjs/fingerprintjs-pro-angular';
 // ...
 
@@ -91,9 +90,15 @@ import {
     FingerprintjsProAngularModule.forRoot({
       loadOptions: {
         apiKey: 'your-fpjs-public-api-key',
+        endpoint: [
+          // "https://metrics.yourwebsite.com", 
+          FingerprintJSPro.defaultEndpoint
+        ],
+        scriptUrlPattern: [
+          // "https://metrics.yourwebsite.com/web/v<version>/<apiKey>/loader_v<loaderVersion>.js",
+          FingerprintJSPro.defaultScriptUrlPattern
+        ],
         // region: 'eu',
-        // endpoint: ['metrics.yourwebsite.com', defaultEndpoint],
-        // scriptUrlPattern: ['metrics.yourwebsite.com/agent-path', defaultScriptUrlPattern],
       }
     })
   ],
