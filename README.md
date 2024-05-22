@@ -28,10 +28,9 @@
   <img src="https://img.shields.io/badge/-Documentation-green" alt="Documentation">
 </a>
 
-
 # Fingerprint Pro Angular
 
-Fingerprint Pro Angular SDK is an easy way to integrate  **[Fingerprint Pro](https://fingerprint.com/)** into your Angular application. See the [`src` folder](https://github.com/fingerprintjs/fingerprintjs-pro-angular/tree/main/src) for a full usage example.  
+Fingerprint Pro Angular SDK is an easy way to integrate **[Fingerprint Pro](https://fingerprint.com/)** into your Angular application. See the [`src` folder](https://github.com/fingerprintjs/fingerprintjs-pro-angular/tree/main/src) for a full usage example.
 
 **This package works with Fingerprint Pro, it is not compatible with [the open-source FingerprintJS](https://github.com/fingerprintjs/fingerprintjs)**. See our documentation to learn more about the [difference between Fingerprint Pro and the open-source FingerprintJS](https://dev.fingerprint.com/docs/pro-vs-open-source).
 
@@ -73,16 +72,11 @@ To identify visitors, you'll need a Fingerprint Pro account (you can [sign up fo
 To get your API key and get started, see the [Quick Start guide in our documentation](https://dev.fingerprint.com/docs/quick-start-guide).
 
 1. Add `FingerprintjsProAngularModule.forRoot()` to the imports sections in your root application module and pass it the `loadOptions` configuration object. You can specify multiple configuration options. Set a [region](https://dev.fingerprint.com/docs/regions) if you have chosen a non-global region during registration. Set `endpoint` and `scriptUrlPattern` if you are using [one of our proxy integrations to increase accuracy](https://dev.fingerprint.com/docs/protecting-the-javascript-agent-from-adblockers) and effectiveness of visitor identification.
-Read more about other [forRoot() parameters](#fingerprintjsproangularmoduleforroot-props) below.
+   Read more about other [forRoot() parameters](#fingerprintjsproangularmoduleforroot-props) below.
 
 ```javascript
-import { NgModule } from '@angular/core';
-import {
-  FingerprintjsProAngularModule,
-  // defaultEndpoint,
-  // defaultScriptUrlPattern,
-} from '@fingerprintjs/fingerprintjs-pro-angular';
-// ...
+import { NgModule } from '@angular/core'
+import { FingerprintjsProAngularModule, FingerprintJSPro } from '@fingerprintjs/fingerprintjs-pro-angular'
 
 @NgModule({
   declarations: [AppComponent],
@@ -90,43 +84,45 @@ import {
     BrowserModule,
     FingerprintjsProAngularModule.forRoot({
       loadOptions: {
-        apiKey: 'your-fpjs-public-api-key',
-        // region: 'eu',
-        // endpoint: ['metrics.yourwebsite.com', defaultEndpoint],
-        // scriptUrlPattern: ['metrics.yourwebsite.com/agent-path', defaultScriptUrlPattern],
-      }
-    })
+        apiKey: '<PUBLIC_API_KEY>',
+        endpoint: ['https://metrics.yourwebsite.com', FingerprintJSPro.defaultEndpoint],
+        scriptUrlPattern: [
+          'https://metrics.yourwebsite.com/web/v<version>/<apiKey>/loader_v<loaderVersion>.js',
+          FingerprintJSPro.defaultScriptUrlPattern,
+        ],
+        // region: "eu"
+      },
+    }),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
 ```
 
 2. Inject `FingerprintjsProAngularService` in your component's constructor. Now you can identify visitors using the `getVisitorData()` method.
 
 ```typescript
-import { Component } from '@angular/core';
-import { FingerprintjsProAngularService } from '@fingerprintjs/fingerprintjs-pro-angular';
+import { Component } from '@angular/core'
+import { FingerprintjsProAngularService } from '@fingerprintjs/fingerprintjs-pro-angular'
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
-
   constructor(private fingerprintjsProAngularService: FingerprintjsProAngularService) {}
-//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-  visitorId = 'Press "Identify" button to get visitorId';
-  extendedResult: null | ExtendedGetResult | GetResult = null;
+  visitorId = 'Press "Identify" button to get visitorId'
+  extendedResult: null | ExtendedGetResult | GetResult = null
 
-  async onIdentifyButtonClick() : Promise<void> {
-    const data = await this.fingerprintjsProAngularService.getVisitorData();
-//  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    this.visitorId = data.visitorId;
-    this.extendedResult = data;
+  async onIdentifyButtonClick(): Promise<void> {
+    const data = await this.fingerprintjsProAngularService.getVisitorData()
+    //  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    this.visitorId = data.visitorId
+    this.extendedResult = data
   }
 }
 ```
@@ -136,33 +132,34 @@ export class HomeComponent {
 The library can be used with Angular Universal. Keep in mind that visitor identification is only possible in the browser, so your visitor identification code should only run client-side. See the example implementation for more details.
 
 ## Linking and tagging information
+
 The `visitorId` provided by Fingerprint Identification is especially useful when combined with information you already know about your users, for example, account IDs, order IDs, etc. To learn more about various applications of the `linkedId` and `tag`, see [Linking and tagging information](https://dev.fingerprint.com/docs/tagging-information).
 
 Associate your data with a visitor ID using the `linkedId` or `tag` parameter of the options object passed into the `useVisitorData()` hook or the `getData` function:
+
 ```ts
 // ...
 
-import { Component } from '@angular/core';
-import { FingerprintjsProAngularService } from '@fingerprintjs/fingerprintjs-pro-angular';
+import { Component } from '@angular/core'
+import { FingerprintjsProAngularService } from '@fingerprintjs/fingerprintjs-pro-angular'
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
-
   constructor(private fingerprintjsProAngularService: FingerprintjsProAngularService) {}
-  
-  async onIdentifyButtonClick() : Promise<void> {
+
+  async onIdentifyButtonClick(): Promise<void> {
     const data = await this.fingerprintjsProAngularService.getVisitorData({
-      linkedId: "user_1234",
+      linkedId: 'user_1234',
       tag: {
-        userAction: "login",
-        analyticsId: "UA-5555-1111-1"
-      }
-    });
-    
+        userAction: 'login',
+        analyticsId: 'UA-5555-1111-1',
+      },
+    })
+
     // ...
   }
 }
@@ -170,12 +167,12 @@ export class HomeComponent {
 
 ## Caching strategy
 
-Fingerprint Pro usage is billed per API call. To avoid unnecessary API calls, it is a good practice to [cache identification results](https://dev.fingerprint.com/docs/caching-visitor-information). By default, the SDK uses `sessionStorage` to cache results. 
+Fingerprint Pro usage is billed per API call. To avoid unnecessary API calls, it is a good practice to [cache identification results](https://dev.fingerprint.com/docs/caching-visitor-information). By default, the SDK uses `sessionStorage` to cache results.
 
-* Specify `cacheLocation` on the `FingerprintjsProAngularModule.forRoot` props to instead store results in `memory` or  `localStorage`. Use `none` to disable caching completely.
-* Specify `cache` on the `FingerprintjsProAngularModule.forRoot` props to use your custom cache implementation instead. For more details, see [Creating a custom cache](https://github.com/fingerprintjs/fingerprintjs-pro-spa#creating-a-custom-cache)
- in the Fingerprint Pro SPA repository (a lower-level Fingerprint library used by this SDK).
-* Pass `{ignoreCache: true}` to the `getVisitorData()` function to ignore cached results for that specific API call.
+- Specify `cacheLocation` on the `FingerprintjsProAngularModule.forRoot` props to instead store results in `memory` or `localStorage`. Use `none` to disable caching completely.
+- Specify `cache` on the `FingerprintjsProAngularModule.forRoot` props to use your custom cache implementation instead. For more details, see [Creating a custom cache](https://github.com/fingerprintjs/fingerprintjs-pro-spa#creating-a-custom-cache)
+  in the Fingerprint Pro SPA repository (a lower-level Fingerprint library used by this SDK).
+- Pass `{ignoreCache: true}` to the `getVisitorData()` function to ignore cached results for that specific API call.
 
 > [!NOTE]
 > If you use data from [`extendedResult`](https://dev.fingerprint.com/docs/js-agent#extendedresult), pay additional attention to your caching strategy.
@@ -229,15 +226,16 @@ Clears the cache for the current caching strategy.
 This repository contains an example Angular application. To run the demo locally:
 
 1. Clone the repository with `git clone git@github.com:fingerprintjs/fingerprintjs-pro-angular.git`.
-2. Inside the root folder, run `yarn install` to install the dependencies.
+2. Inside the root folder, run `pnpm install` to install the dependencies.
 3. Create a dev environment file with `cp src/environments/environment.ts src/environments/environment.dev.ts`, and inside, replace `FingerprintJS Pro public key` with your actual public key.
-4. Run `yarn generate:version` to create an SDK version file.
-5. Run `yarn build` to build the SDK package.
-6. Run `yarn start` to start the demo application.
+4. Run `pnpm generate:version` to create an SDK version file.
+5. Run `pnpm build` to build the SDK package.
+6. Run `pnpm start` to start the demo application.
 
 The application will start on http://localhost:4200.
 
 ## Support and feedback
+
 To ask questions or provide feedback, use [Issues](https://github.com/fingerprintjs/fingerprintjs-pro-angular/issues). If you need private support, please email us at `oss-support@fingerprint.com`. If you'd like to have a similar Angular wrapper for the [open-source FingerprintJS](https://github.com/fingerprintjs/fingerprintjs), consider creating an issue in the main [FingerprintJS repository](https://github.com/fingerprintjs/fingerprintjs/issues).
 
 ## API Reference
