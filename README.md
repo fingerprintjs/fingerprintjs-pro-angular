@@ -175,12 +175,12 @@ Fingerprint Pro usage is billed per API call. To avoid unnecessary API calls, it
 - Pass `{ignoreCache: true}` to the `getVisitorData()` function to ignore cached results for that specific API call.
 
 > [!NOTE]
-> If you use data from [`extendedResult`](https://dev.fingerprint.com/docs/js-agent#extendedresult), pay additional attention to your caching strategy.
+> If you use data from [`extendedResult`](https://dev.fingerprint.com/reference/get-function#extendedresult), pay additional attention to your caching strategy.
 > Some fields, for example, `ip` or `lastSeenAt`, might change over time for the same visitor. Use `getVisitorData({ ignoreCache: true })` to fetch the latest identification results.
 
 ## Documentation
 
-This library uses Fingerprint Pro JavaScript agent under the hood. See our documentation for the full [JavaScript Agent API reference](https://dev.fingerprint.com/docs/js-agent).j
+This library uses Fingerprint Pro JavaScript agent under the hood. See our documentation for the full [JavaScript Agent API reference](https://dev.fingerprint.com/reference/javascript-agent).j
 
 ### `FingerprintjsProAngularModule`
 
@@ -190,7 +190,7 @@ The module just initializes the Fingerprint Pro JS agent with load options, conf
 
 `loadOptions: FingerprintJS.LoadOptions`
 
-Options for the FingerprintJS JS Pro agent `load()` method. Options follow the [agent's initialization properties](https://dev.fingerprint.com/docs/js-agent#initializing-the-agent).
+Options for the FingerprintJS JS Pro agent `load()` method. Options follow the [agent's initialization properties](https://dev.fingerprint.com/reference/load-function#load-options).
 
 `cacheLocation?: CacheLocation`
 
@@ -212,9 +212,9 @@ Custom prefix for localStorage and sessionStorage cache keys. Will be ignored if
 
 #### `getVisitorData(ignoreCache?: boolean, options?: GetOptions<TExtended>)`
 
-This method performs identification requests with the FingerprintJS Pro API. The returned object contains information about loading status, errors, and [the visitor](https://dev.fingerprint.com/docs/js-agent#extendedresult).
+This method performs identification requests with the FingerprintJS Pro API. The returned object contains information about loading status, errors, and [the visitor](https://dev.fingerprint.com/reference/get-function#get-response).
 
-- `getOptions: GetOptions<TExtended>` parameter follows the parameters of the FingerprintJS Pro's [`get` function](https://dev.fingerprint.com/docs/js-agent#get-options).
+- `getOptions: GetOptions<TExtended>` parameter follows the parameters of the FingerprintJS Pro's [`get` function](https://dev.fingerprint.com/reference/get-function#get-options).
 - `ignoreCache: boolean` - set to `true` to always make a request to the API, even if the data is present in the cache.
 
 #### `clearCache`
