@@ -92,13 +92,13 @@ in the Fingerprint Pro SPA repository (a lower-level Fingerprint library used by
 </ul>
 <blockquote>
 <p>[!NOTE]
-If you use data from <a href="https://dev.fingerprint.com/docs/js-agent#extendedresult"><code>extendedResult</code></a>, pay additional attention to your caching strategy.
+If you use data from <a href="https://dev.fingerprint.com/reference/get-function#extendedresult"><code>extendedResult</code></a>, pay additional attention to your caching strategy.
 Some fields, for example, <code>ip</code> or <code>lastSeenAt</code>, might change over time for the same visitor. Use <code>getVisitorData({ ignoreCache: true })</code> to fetch the latest identification results.</p>
 </blockquote>
-<a id="md:documentation" class="tsd-anchor"></a><h2><a href="#md:documentation">Documentation</a></h2><p>This library uses Fingerprint Pro JavaScript agent under the hood. See our documentation for the full <a href="https://dev.fingerprint.com/docs/js-agent">JavaScript Agent API reference</a>.j</p>
+<a id="md:documentation" class="tsd-anchor"></a><h2><a href="#md:documentation">Documentation</a></h2><p>This library uses Fingerprint Pro JavaScript agent under the hood. See our documentation for the full <a href="https://dev.fingerprint.com/reference/javascript-agent">JavaScript Agent API reference</a>.j</p>
 <a id="md:fingerprintjsproangularmodule" class="tsd-anchor"></a><h3><a href="#md:fingerprintjsproangularmodule"><code>FingerprintjsProAngularModule</code></a></h3><p>The module just initializes the Fingerprint Pro JS agent with load options, configures caching strategy, and provides <code>FingerprintjsProAngularService</code> to DI.</p>
 <a id="md:fingerprintjsproangularmoduleforroot-props" class="tsd-anchor"></a><h4><a href="#md:fingerprintjsproangularmoduleforroot-props"><code>FingerprintjsProAngularModule.forRoot</code> props</a></h4><p><code>loadOptions: FingerprintJS.LoadOptions</code></p>
-<p>Options for the FingerprintJS JS Pro agent <code>load()</code> method. Options follow the <a href="https://dev.fingerprint.com/docs/js-agent#initializing-the-agent">agent&#39;s initialization properties</a>.</p>
+<p>Options for the FingerprintJS JS Pro agent <code>load()</code> method. Options follow the <a href="https://dev.fingerprint.com/reference/load-function#load-options">agent&#39;s initialization properties</a>.</p>
 <p><code>cacheLocation?: CacheLocation</code></p>
 <p>Defines which built-in cache mechanism the client should use. Caching options follow properties defined in the <a href="https://github.com/fingerprintjs/fingerprintjs-pro-spa#caching">fingerprintjs-pro-spa repository</a>.</p>
 <p><code>cache?: ICache</code></p>
@@ -107,9 +107,9 @@ Some fields, for example, <code>ip</code> or <code>lastSeenAt</code>, might chan
 <p>Duration in seconds for which data is stored in the cache. Cannot exceed 86_400 (24h) because caching data for longer than 24 hours can negatively affect identification accuracy. Caching options follow properties defined in the <a href="https://github.com/fingerprintjs/fingerprintjs-pro-spa#caching">fingerprintjs-pro-spa repository</a>.</p>
 <p><code>cachePrefix?: string</code></p>
 <p>Custom prefix for localStorage and sessionStorage cache keys. Will be ignored if the <code>cache</code> is provided. Caching options follow properties defined in the <a href="https://github.com/fingerprintjs/fingerprintjs-pro-spa#caching">fingerprintjs-pro-spa repository</a>.</p>
-<a id="md:fingerprintjsproangularservice-methods" class="tsd-anchor"></a><h3><a href="#md:fingerprintjsproangularservice-methods"><code>FingerprintjsProAngularService</code> methods</a></h3><a id="md:getvisitordataignorecache-boolean-options-getoptionslttextendedgt" class="tsd-anchor"></a><h4><a href="#md:getvisitordataignorecache-boolean-options-getoptionslttextendedgt"><code>getVisitorData(ignoreCache?: boolean, options?: GetOptions&lt;TExtended&gt;)</code></a></h4><p>This method performs identification requests with the FingerprintJS Pro API. The returned object contains information about loading status, errors, and <a href="https://dev.fingerprint.com/docs/js-agent#extendedresult">the visitor</a>.</p>
+<a id="md:fingerprintjsproangularservice-methods" class="tsd-anchor"></a><h3><a href="#md:fingerprintjsproangularservice-methods"><code>FingerprintjsProAngularService</code> methods</a></h3><a id="md:getvisitordataignorecache-boolean-options-getoptionslttextendedgt" class="tsd-anchor"></a><h4><a href="#md:getvisitordataignorecache-boolean-options-getoptionslttextendedgt"><code>getVisitorData(ignoreCache?: boolean, options?: GetOptions&lt;TExtended&gt;)</code></a></h4><p>This method performs identification requests with the FingerprintJS Pro API. The returned object contains information about loading status, errors, and <a href="https://dev.fingerprint.com/reference/get-function#get-response">the visitor</a>.</p>
 <ul>
-<li><code>getOptions: GetOptions&lt;TExtended&gt;</code> parameter follows the parameters of the FingerprintJS Pro&#39;s <a href="https://dev.fingerprint.com/docs/js-agent#get-options"><code>get</code> function</a>.</li>
+<li><code>getOptions: GetOptions&lt;TExtended&gt;</code> parameter follows the parameters of the FingerprintJS Pro&#39;s <a href="https://dev.fingerprint.com/reference/get-function#get-options"><code>get</code> function</a>.</li>
 <li><code>ignoreCache: boolean</code> - set to <code>true</code> to always make a request to the API, even if the data is present in the cache.</li>
 </ul>
 <a id="md:clearcache" class="tsd-anchor"></a><h4><a href="#md:clearcache"><code>clearCache</code></a></h4><p>Clears the cache for the current caching strategy.</p>
