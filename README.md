@@ -32,8 +32,6 @@
 
 Fingerprint Pro Angular SDK is an easy way to integrate **[Fingerprint Pro](https://fingerprint.com/)** into your Angular application. See the [`src` folder](https://github.com/fingerprintjs/fingerprintjs-pro-angular/tree/main/src) for a full usage example.
 
-**This package works with Fingerprint Pro, it is not compatible with [the open-source FingerprintJS](https://github.com/fingerprintjs/fingerprintjs)**. See our documentation to learn more about the [difference between Fingerprint Pro and the open-source FingerprintJS](https://dev.fingerprint.com/docs/pro-vs-open-source).
-
 ## Table of contents
 
 - [Requirements](#requirements)
@@ -51,6 +49,8 @@ The following dependencies are required:
 - TypeScript >=4.6
 - Node 16+
 - Angular 15+
+
+This package works with the commercial [Fingerprint platform](https://fingerprint.com/). It is not compatible with the source-available [FingerprintJS library](https://github.com/fingerprintjs/fingerprintjs). Learn more about the [differences between Fingerprint and FingerprintJS](https://fingerprint.com/github/).
 
 ## Installation
 
@@ -236,7 +236,7 @@ The application will start on http://localhost:4200.
 
 ## Support and feedback
 
-To ask questions or provide feedback, use [Issues](https://github.com/fingerprintjs/fingerprintjs-pro-angular/issues). If you need private support, please email us at `oss-support@fingerprint.com`. If you'd like to have a similar Angular wrapper for the [open-source FingerprintJS](https://github.com/fingerprintjs/fingerprintjs), consider creating an issue in the main [FingerprintJS repository](https://github.com/fingerprintjs/fingerprintjs/issues).
+To ask questions or provide feedback, use [Issues](https://github.com/fingerprintjs/fingerprintjs-pro-angular/issues). If you need private support, please email us at `oss-support@fingerprint.com`. If you'd like to have a similar Angular wrapper for the [source-available FingerprintJS](https://github.com/fingerprintjs/fingerprintjs), consider creating an issue in the main [FingerprintJS repository](https://github.com/fingerprintjs/fingerprintjs/issues).
 
 ## API Reference
 
