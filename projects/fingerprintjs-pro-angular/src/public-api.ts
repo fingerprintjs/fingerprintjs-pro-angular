@@ -5,6 +5,7 @@
 export * from './lib/fingerprintjs-pro-angular.service'
 export * from './lib/fingerprintjs-pro-angular.module'
 export * from './lib/interfaces/i-fingerprintjs-pro-settings'
+export * from './lib/tokens/fingerprintjs-pro-angular-settings-token'
 
 export {
   CacheLocation,
