@@ -1,5 +1,5 @@
 import { ModuleWithProviders, NgModule } from '@angular/core'
-import { FINGERPTINTJS_PRO_ANGULAR_SETTINGS_TOKEN } from './tokens/fingerprintjs-pro-angular-settings-token'
+import { FINGERPRINT_PRO_ANGULAR_SETTINGS_TOKEN } from './tokens/fingerprintjs-pro-angular-settings-token'
 import { IFingerprintjsProSettings } from './interfaces/i-fingerprintjs-pro-settings'
 import { FingerprintjsProAngularService } from './fingerprintjs-pro-angular.service'
 import { FpjsClientOptions } from '@fingerprintjs/fingerprintjs-pro-spa'
@@ -32,7 +32,7 @@ export class FingerprintjsProAngularModule {
       ngModule: FingerprintjsProAngularModule,
       providers: [
         {
-          provide: FINGERPTINTJS_PRO_ANGULAR_SETTINGS_TOKEN,
+          provide: FINGERPRINT_PRO_ANGULAR_SETTINGS_TOKEN,
           useValue: {
             clientOptions,
           } as IFingerprintjsProSettings,

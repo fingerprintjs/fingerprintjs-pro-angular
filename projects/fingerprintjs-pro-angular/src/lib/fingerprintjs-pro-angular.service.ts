@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@angular/core'
 import { FpjsClient, FingerprintJSPro } from '@fingerprintjs/fingerprintjs-pro-spa'
-import { FINGERPTINTJS_PRO_ANGULAR_SETTINGS_TOKEN } from './tokens/fingerprintjs-pro-angular-settings-token'
+import { FINGERPRINT_PRO_ANGULAR_SETTINGS_TOKEN } from './tokens/fingerprintjs-pro-angular-settings-token'
 import { IFingerprintjsProSettings } from './interfaces/i-fingerprintjs-pro-settings'
 import { packageVersion } from './version'
 
@@ -39,7 +39,7 @@ export class FingerprintjsProAngularService {
   private readonly fingerprintJsClientInitPromise: Promise<Object>
 
   constructor(
-    @Inject(FINGERPTINTJS_PRO_ANGULAR_SETTINGS_TOKEN)
+    @Inject(FINGERPRINT_PRO_ANGULAR_SETTINGS_TOKEN)
     settings: IFingerprintjsProSettings
   ) {
     const { loadOptions } = settings.clientOptions
