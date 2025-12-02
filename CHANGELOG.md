@@ -1,3 +1,15 @@
+## [2.1.0](https://github.com/fingerprintjs/fingerprintjs-pro-angular/compare/v2.0.0...v2.1.0) (2025-12-02)
+
+
+### Features
+
+* bump `@fingerprintjs/fingerprintjs-pro-spa` to `^1.3.2` ([f2bdf88](https://github.com/fingerprintjs/fingerprintjs-pro-angular/commit/f2bdf8871f729dee5507d525033fb19a934613e9))
+
+
+### Bug Fixes
+
+* correct token naming and expose fingerprintjs-pro-angular settings ([8c830d0](https://github.com/fingerprintjs/fingerprintjs-pro-angular/commit/8c830d011a8d750ab6c691610d2d857652fdd65d))
+
 ## [2.0.0](https://github.com/fingerprintjs/fingerprintjs-pro-angular/compare/v1.3.0...v2.0.0) (2024-03-25)
 
 
