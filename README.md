@@ -30,7 +30,10 @@
 
 # Fingerprint Pro Angular
 
-Fingerprint Pro Angular SDK is an easy way to integrate **[Fingerprint Pro](https://fingerprint.com/)** into your Angular application. See the [`src` folder](https://github.com/fingerprintjs/fingerprintjs-pro-angular/tree/main/src) for a full usage example.
+Fingerprint Pro Angular SDK is an easy way to integrate **[Fingerprint](https://fingerprint.com/)** into your Angular application. See the [`src` folder](https://github.com/fingerprintjs/fingerprintjs-pro-angular/tree/main/src) for a full usage example.
+
+> [!IMPORTANT]
+> This SDK currently supports v3 of the Fingerprint JavaScript agent. Support for JavaScript agent v4 is coming soon. See the [v3 to v4 migration guide](https://docs.fingerprint.com/reference/migrating-from-v3-to-v4) for more information.
 
 ## Table of contents
 
