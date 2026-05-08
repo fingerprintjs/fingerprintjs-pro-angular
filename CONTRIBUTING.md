@@ -27,11 +27,18 @@ Run `yarn test` to execute the unit tests via [Jest](https://jestjs.io/).
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
 ### How to publish
-The library is automatically released and published to NPM on every push to the main branch if there are relevant changes using [semantic-release](https://github.com/semantic-release/semantic-release) with following plugins:
-* [@semantic-release/commit-analyzer](https://github.com/semantic-release/commit-analyzer)
-* [@semantic-release/release-notes-generator](https://github.com/semantic-release/release-notes-generator)
-* [@semantic-release/changelog](https://github.com/semantic-release/changelog)
-* [@semantic-release/npm](https://github.com/semantic-release/npm)
-* [@semantic-release/github](https://github.com/semantic-release/github)
+The library is automatically released and published to NPM on every push to the main branch if there are relevant changes using [changesets](https://github.com/changesets/changesets) with following plugins:
 
 The workflow must be approved by one of the maintainers, first.
+
+If there are relevant changes, please add them to changeset via `pnpm exec changeset`. You need to run `pnpm install` before doing so.
+
+Every change requires a pre-release first:
+```shell
+pnpm exec changeset pre enter rc
+```
+
+When the PR is merged, the pre-release is created and E2E tests run against it. Once the tests pass, a stable release can be created:
+```shell
+pnpm exec changeset pre exit
+```
