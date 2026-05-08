@@ -5,7 +5,7 @@
     "prepare": "husky install",
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build fingerprintjs-pro-angular && ./bin/copy_assets.sh",
+    "build": "pnpm generate:version && ng build fingerprintjs-pro-angular && ./bin/copy_assets.sh",
     "watch": "ng build --watch --configuration development",
     "watch:library": "ng build fingerprintjs-pro-angular --watch",
     "dev:ssr": "ng run fingerprintjs-pro-angular-demo:serve-ssr",
