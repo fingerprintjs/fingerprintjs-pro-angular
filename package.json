@@ -19,7 +19,7 @@
     "test": "jest",
     "test:coverage": "jest --coverage",
     "docs": "typedoc projects/fingerprintjs-pro-angular/src/public-api.ts --out docs",
-    "changeset:publish": "HUSKY=0 changeset publish && pnpm build:release && ./scripts/preparePackage.sh",
+    "changeset:publish": "HUSKY=0 pnpm build && changeset publish",
     "changeset:version": "changeset version"
   },
   "private": true,
