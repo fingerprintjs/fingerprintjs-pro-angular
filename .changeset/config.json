@@ -3,7 +3,7 @@
   "changelog": [
     "@fingerprintjs/changesets-changelog-format",
     {
-      "repo": "fingerprintjs/angular"
+      "repo": "fingerprintjs/fingerprintjs-pro-angular"
     }
   ],
   "commit": false,
