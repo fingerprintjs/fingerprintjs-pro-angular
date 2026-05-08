@@ -27,7 +27,7 @@ Run `yarn test` to execute the unit tests via [Jest](https://jestjs.io/).
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
 ### How to publish
-The library is automatically released and published to NPM on every push to the main branch if there are relevant changes using [changesets](https://github.com/changesets/changesets) with following plugins:
+The library is automatically released and published to NPM on every push to the main branch if there are relevant changes using [changesets](https://github.com/changesets/changesets).
 
 The workflow must be approved by one of the maintainers, first.
 
