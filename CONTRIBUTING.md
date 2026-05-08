@@ -35,7 +35,7 @@ If there are relevant changes, please add them to changeset via `pnpm exec chang
 
 Every change requires a pre-release first:
 ```shell
-pnpm exec changeset pre enter rc
+pnpm exec changeset pre enter test
 ```
 
 When the PR is merged, the pre-release is created and E2E tests run against it. Once the tests pass, a stable release can be created:
