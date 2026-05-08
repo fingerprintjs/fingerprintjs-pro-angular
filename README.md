@@ -63,6 +63,12 @@ Using [npm](https://npmjs.org):
 npm install @fingerprintjs/fingerprintjs-pro-angular
 ```
 
+Using [pnpm](https://pnpm.io/):
+
+```sh
+pnpm add @fingerprintjs/fingerprintjs-pro-angular
+```
+
 Using [yarn](https://yarnpkg.com):
 
 ```sh
