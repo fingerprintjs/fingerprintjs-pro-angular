@@ -1,8 +1,8 @@
 import { Inject, Injectable } from '@angular/core'
-import { Fingerprint } from '@fingerprint/agent'
+import * as Fingerprint from '@fingerprint/agent'
 import { packageVersion } from './version'
-import { FINGERPRINT_ANGULAR_SETTINGS_TOKEN } from './fingerprint-angular-settings.token'
 import { FingerprintSettings } from './interfaces/fingerprint-settings'
+import { FINGERPRINT_ANGULAR_SETTINGS_TOKEN } from './tokens/fingerprint-angular-settings-token'
 
 /**
  * Inject FingerprintAngularService and use it to make identification requests.
