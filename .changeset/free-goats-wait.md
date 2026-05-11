@@ -44,3 +44,5 @@ FingerprintAngularModule.forRoot({
   },
 })
 ```
+
+For more information, see the [Fingerprint Agent documentation](https://docs.fingerprint.com/docs/identify-visitors#caching-the-visitor-id).
