@@ -1,6 +1,7 @@
 import { Inject, Injectable } from '@angular/core'
+import { Fingerprint } from '@fingerprint/agent'
 import { packageVersion } from './version'
-import { Fingerprint, FINGERPRINT_ANGULAR_SETTINGS_TOKEN } from '../public-api'
+import { FINGERPRINT_ANGULAR_SETTINGS_TOKEN } from './fingerprint-angular-settings.token'
 import { FingerprintSettings } from './interfaces/fingerprint-settings'
 
 /**
