@@ -137,7 +137,7 @@ The library can be used with Angular Universal. Keep in mind that visitor identi
 
 The `event_id` provided by Fingerprint Identification is especially useful when combined with information you already know about your users, for example, account IDs, order IDs, etc. To learn more about various applications of the `linkedId` and `tag`, see [Linking and tagging information](https://dev.fingerprint.com/docs/tagging-information).
 
-Associate your data with a visitor ID using the `linkedId` or `tag` parameter of the options object passed into the `getVisitorData()` method:
+Associate your data with an identification event using the `linkedId` or `tag` parameter of the options object passed into the `getVisitorData()` method:
 
 ```ts
 // ...
