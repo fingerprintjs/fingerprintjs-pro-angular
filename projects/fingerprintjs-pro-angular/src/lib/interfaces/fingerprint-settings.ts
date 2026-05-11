@@ -1,4 +1,4 @@
-import { Fingerprint } from '../../public-api'
+import * as Fingerprint from '@fingerprint/agent'
 
 export interface FingerprintSettings {
   startOptions: Fingerprint.StartOptions
