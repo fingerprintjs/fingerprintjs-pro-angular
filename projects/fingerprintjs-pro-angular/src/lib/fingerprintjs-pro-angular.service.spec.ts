@@ -1,110 +1,134 @@
 import { TestBed } from '@angular/core/testing'
 
-import { FingerprintjsProAngularService } from './fingerprintjs-pro-angular.service'
-import { FingerprintjsProAngularModule } from './fingerprintjs-pro-angular.module'
-import { CacheLocation, FpjsClient, FpjsClientOptions } from '@fingerprintjs/fingerprintjs-pro-spa'
+import { FingerprintAngularService } from './fingerprint-angular.service'
+import { FingerprintAngularModule } from './fingerprint-angular.module'
 
-import * as packageInfo from '../../package.json'
+import { Fingerprint } from '../public-api'
+import { packageVersion } from './version'
 
-const testData = {
-  visitorId: 'abcdef123456',
-}
-
-const loadOptions = {
+const plainStartOptions = {
   apiKey: 'test_api_key',
 }
 
-const fullOptions: FpjsClientOptions = {
-  loadOptions,
-  cacheLocation: CacheLocation.LocalStorage,
-  cachePrefix: 'TEST_PREFIX',
-  cacheTimeInSeconds: 60 * 15,
+const fullOptions: Fingerprint.StartOptions = {
+  ...plainStartOptions,
+  cache: {
+    duration: 30,
+    cachePrefix: 'test_cache_',
+    storage: 'sessionStorage',
+  },
+  region: 'eu',
+  endpoints: ['https://test/integration'],
+  remoteControlDetection: true,
+  storageKeyPrefix: 'test_storage_',
+  urlHashing: {
+    path: true,
+    query: true,
+    fragment: true,
+  },
+  integrationInfo: ['custom-angular/test'],
 }
 
-const init = jest.fn()
-const getVisitorData = jest.fn()
-//
-jest.mock('@fingerprintjs/fingerprintjs-pro-spa', () => {
+jest.mock('@fingerprint/agent', () => {
   return {
-    ...(jest.requireActual('@fingerprintjs/fingerprintjs-pro-spa') as any),
-    FpjsClient: jest.fn(() => {
+    ...(jest.requireActual('@fingerprint/agent') as any),
+    start: jest.fn(() => {
       return {
-        init,
-        getVisitorData,
-        clearCache: jest.fn(),
+        get: jest.fn(),
+        collect: jest.fn(),
       }
     }),
+    handleAgentData: jest.fn(),
+    isFingerprintError: jest.fn(),
+    withoutDefault: jest.fn(),
   }
 })
 
-describe('FingerprintjsProAngularService', () => {
-  let service: FingerprintjsProAngularService
+describe('FingerprintAngularService', () => {
+  let service: FingerprintAngularService
+  let fingerprintAgent: any
 
   beforeEach(() => {
-    init.mockClear()
-    getVisitorData.mockClear()
-
-    TestBed.configureTestingModule({
-      imports: [FingerprintjsProAngularModule.forRoot({ loadOptions })],
-    })
-
-    service = TestBed.inject(FingerprintjsProAngularService)
+    fingerprintAgent = require('@fingerprint/agent')
+    jest.clearAllMocks()
   })
 
   it('should be created', () => {
-    expect(service).toBeTruthy()
-    expect(init).toHaveBeenCalled()
-  })
-
-  it('should add integration info', () => {
-    expect(FpjsClient).toHaveBeenCalledWith(
-      expect.objectContaining({
-        loadOptions: expect.objectContaining({
-          ...loadOptions,
-          integrationInfo: [`fingerprintjs-pro-angular/${packageInfo.version}`],
-        }),
-      })
-    )
-  })
-
-  it('should call getVisitorData', async () => {
-    expect(service).toBeTruthy()
-    await service.getVisitorData()
-    expect(getVisitorData).toHaveBeenCalled()
-  })
-
-  it('should call getVisitorData with params', async () => {
-    getVisitorData.mockImplementation(() => testData)
-    expect(service).toBeTruthy()
-    const result = await service.getVisitorData()
-    expect(getVisitorData).toHaveBeenCalled()
-    expect(result).toEqual(testData)
-  })
-})
-
-describe('FingerprintjsProAngularService with full params', () => {
-  beforeEach(() => {
-    init.mockClear()
-    getVisitorData.mockClear()
-
     TestBed.configureTestingModule({
-      imports: [FingerprintjsProAngularModule.forRoot(fullOptions)],
+      imports: [FingerprintAngularModule.forRoot({ startOptions: fullOptions })],
     })
-
-    TestBed.inject(FingerprintjsProAngularService)
+    service = TestBed.inject(FingerprintAngularService)
+    expect(service).toBeTruthy()
   })
 
-  it('should add integration info', () => {
-    expect(FpjsClient).toHaveBeenCalledWith(
-      expect.objectContaining({
-        loadOptions: expect.objectContaining({
-          ...loadOptions,
-          integrationInfo: [`fingerprintjs-pro-angular/${packageInfo.version}`],
-        }),
-        cacheLocation: CacheLocation.LocalStorage,
-        cachePrefix: 'TEST_PREFIX',
-        cacheTimeInSeconds: 60 * 15,
-      })
-    )
+  it('should call Fingerprint.start with fullOptions', () => {
+    TestBed.resetTestingModule()
+    TestBed.configureTestingModule({
+      imports: [FingerprintAngularModule.forRoot({ startOptions: fullOptions })],
+    })
+    service = TestBed.inject(FingerprintAngularService)
+
+    expect(fingerprintAgent.start).toHaveBeenCalledWith({
+      ...fullOptions,
+      integrationInfo: [...fullOptions.integrationInfo!, `angular/${packageVersion}`],
+    })
+  })
+
+  it('should call Fingerprint.start with plainStartOptions', () => {
+    TestBed.resetTestingModule()
+    TestBed.configureTestingModule({
+      imports: [FingerprintAngularModule.forRoot({ startOptions: plainStartOptions })],
+    })
+    service = TestBed.inject(FingerprintAngularService)
+
+    expect(fingerprintAgent.start).toHaveBeenCalledWith({
+      ...plainStartOptions,
+      integrationInfo: [`angular/${packageVersion}`],
+    })
+  })
+
+  it('should call Fingerprint.start with correct parameters when integrationInfo is provided', () => {
+    const optionsWithIntegration: Fingerprint.StartOptions = {
+      ...fullOptions,
+      integrationInfo: ['test-integration'],
+    }
+    TestBed.resetTestingModule()
+    TestBed.configureTestingModule({
+      imports: [FingerprintAngularModule.forRoot({ startOptions: optionsWithIntegration })],
+    })
+    service = TestBed.inject(FingerprintAngularService)
+
+    expect(fingerprintAgent.start).toHaveBeenCalledWith({
+      ...optionsWithIntegration,
+      integrationInfo: ['test-integration', `angular/${packageVersion}`],
+    })
+  })
+
+  it('should call getVisitorData and call agent.get', async () => {
+    TestBed.configureTestingModule({
+      imports: [FingerprintAngularModule.forRoot({ startOptions: fullOptions })],
+    })
+    service = TestBed.inject(FingerprintAngularService)
+    const getOptions: Fingerprint.GetOptions = {
+      linkedId: 'test_linked_id',
+    }
+    const agent = (fingerprintAgent.start as jest.Mock).mock.results[0].value
+    await service.getVisitorData(getOptions)
+    expect(agent.get).toHaveBeenCalledWith(getOptions)
+  })
+
+  it('should call collectData and call agent.collect', async () => {
+    TestBed.configureTestingModule({
+      imports: [FingerprintAngularModule.forRoot({ startOptions: fullOptions })],
+    })
+    service = TestBed.inject(FingerprintAngularService)
+    const collectOptions: Fingerprint.GetOptions = {
+      tag: {
+        user_id: '123',
+      },
+    }
+    const agent = (fingerprintAgent.start as jest.Mock).mock.results[0].value
+    await service.collectData(collectOptions)
+    expect(agent.collect).toHaveBeenCalledWith(collectOptions)
   })
 })

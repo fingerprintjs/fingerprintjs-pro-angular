@@ -1,5 +1,5 @@
 import { Component } from '@angular/core'
-import { FingerprintjsProAngularService, GetResult, ExtendedGetResult } from '@fingerprintjs/fingerprintjs-pro-angular'
+import { FingerprintAngularService, Fingerprint } from '@fingerprintjs/fingerprintjs-pro-angular'
 
 @Component({
   selector: 'app-home',
@@ -7,10 +7,10 @@ import { FingerprintjsProAngularService, GetResult, ExtendedGetResult } from '@f
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
-  constructor(private fingerprintjsProAngularService: FingerprintjsProAngularService) {}
+  constructor(private fingerprintAngularService: FingerprintAngularService) {}
 
-  visitorId = 'Press "Identify" button to get visitorId'
-  extendedResult: GetResult | ExtendedGetResult | null = null
+  eventId = 'Press "Identify" button to get eventId'
+  extendedResult: Fingerprint.GetResult | null = null
 
   get extendedResultJSON() {
     return JSON.stringify(this.extendedResult, null, 2)
@@ -18,22 +18,22 @@ export class HomeComponent {
 
   async onButtonClick(): Promise<void> {
     try {
-      const data = await this.fingerprintjsProAngularService.getVisitorData({
+      const data = await this.fingerprintAngularService.getVisitorData({
         extendedResult: true,
-      })
-      this.visitorId = data.visitorId
+      } as any)
+      this.eventId = data.event_id
       this.extendedResult = data
     } catch (error) {
       if (error instanceof Error) {
-        this.visitorId = `${error.name}: ${error.message}`
+        this.eventId = `${error.name}: ${error.message}`
         this.extendedResult = null
       }
     }
   }
 
   onClearCacheClick() {
-    this.fingerprintjsProAngularService.clearCache()
-    this.visitorId = 'Press button to get visitorId again'
+    this.fingerprintAngularService.clearCache()
+    this.eventId = 'Press button to get eventId again'
     this.extendedResult = null
   }
 }

@@ -1,9 +1,9 @@
 import { InjectionToken } from '@angular/core'
-import { IFingerprintjsProSettings } from '../interfaces/i-fingerprintjs-pro-settings'
+import { FingerprintSettings } from '../interfaces/fingerprint-settings'
 
-export const FINGERPRINT_PRO_ANGULAR_SETTINGS_TOKEN = new InjectionToken<IFingerprintjsProSettings>(
+export const FINGERPRINT_ANGULAR_SETTINGS_TOKEN = new InjectionToken<FingerprintSettings>(
   'ng-fingerprintjspro-settings-token',
   {
-    factory: () => ({ clientOptions: { loadOptions: { apiKey: '' } } }),
+    factory: () => ({ startOptions: { apiKey: '' } }),
   }
 )

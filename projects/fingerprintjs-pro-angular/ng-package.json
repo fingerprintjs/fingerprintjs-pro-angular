@@ -3,8 +3,5 @@
   "dest": "../../dist/fingerprintjs-pro-angular",
   "lib": {
     "entryFile": "src/public-api.ts"
-  },
-  "allowedNonPeerDependencies": [
-    "@fingerprintjs/fingerprintjs-pro-spa"
-  ]
+  }
 }
