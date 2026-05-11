@@ -1,4 +1,5 @@
-import { Inject, Injectable } from '@angular/core'
+import { Inject, Injectable, PLATFORM_ID } from '@angular/core'
+import { isPlatformBrowser } from '@angular/common'
 import * as Fingerprint from '@fingerprint/agent'
 import { packageVersion } from './version'
 import { FingerprintSettings } from './interfaces/fingerprint-settings'
@@ -33,24 +34,35 @@ import { FINGERPRINT_ANGULAR_SETTINGS_TOKEN } from './tokens/fingerprint-angular
   providedIn: 'root',
 })
 export class FingerprintAngularService {
-  private readonly publicAgent: Fingerprint.Agent
+  private readonly publicAgent: Fingerprint.Agent | undefined
   private readonly settings: FingerprintSettings
 
-  constructor(@Inject(FINGERPRINT_ANGULAR_SETTINGS_TOKEN) settings: FingerprintSettings) {
+  constructor(
+    @Inject(FINGERPRINT_ANGULAR_SETTINGS_TOKEN) settings: FingerprintSettings,
+    @Inject(PLATFORM_ID) private readonly platformId: any
+  ) {
     this.settings = settings
-    const { startOptions } = settings
-    const integrationInfo = startOptions.integrationInfo || []
-    this.publicAgent = Fingerprint.start({
-      ...startOptions,
-      integrationInfo: [...integrationInfo, `angular/${packageVersion}`],
-    })
+    if (isPlatformBrowser(this.platformId)) {
+      const { startOptions } = settings
+      const integrationInfo = startOptions.integrationInfo || []
+      this.publicAgent = Fingerprint.start({
+        ...startOptions,
+        integrationInfo: [...integrationInfo, `angular/${packageVersion}`],
+      })
+    }
   }
 
   getVisitorData(getDataOptions?: Fingerprint.GetOptions): Promise<Fingerprint.GetResult> {
+    if (!this.publicAgent) {
+      return Promise.reject(new Error('Fingerprint agent is not initialized on this platform'))
+    }
     return this.publicAgent.get(getDataOptions)
   }
 
   collectData(collectOptions?: Fingerprint.GetOptions): Promise<string> {
+    if (!this.publicAgent) {
+      return Promise.reject(new Error('Fingerprint agent is not initialized on this platform'))
+    }
     return this.publicAgent.collect(collectOptions)
   }
 
@@ -61,6 +73,9 @@ export class FingerprintAngularService {
    * This method clears that storage.
    */
   clearCache(): void {
+    if (!isPlatformBrowser(this.platformId)) {
+      return
+    }
     const cacheConfig = this.settings.startOptions.cache
     if (!cacheConfig) {
       return

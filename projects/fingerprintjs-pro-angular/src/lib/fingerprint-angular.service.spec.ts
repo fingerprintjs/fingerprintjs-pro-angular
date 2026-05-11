@@ -118,6 +118,7 @@ describe('FingerprintAngularService', () => {
   })
 
   it('should call collectData and call agent.collect', async () => {
+    TestBed.resetTestingModule()
     TestBed.configureTestingModule({
       imports: [FingerprintAngularModule.forRoot({ startOptions: fullOptions })],
     })
@@ -130,5 +131,17 @@ describe('FingerprintAngularService', () => {
     const agent = (fingerprintAgent.start as jest.Mock).mock.results[0].value
     await service.collectData(collectOptions)
     expect(agent.collect).toHaveBeenCalledWith(collectOptions)
+  })
+
+  it('should not throw error when calling clearCache in SSR environment', () => {
+    const { PLATFORM_ID } = require('@angular/core')
+    TestBed.resetTestingModule()
+    TestBed.configureTestingModule({
+      imports: [FingerprintAngularModule.forRoot({ startOptions: fullOptions })],
+      providers: [{ provide: PLATFORM_ID, useValue: 'server' }],
+    })
+    service = TestBed.inject(FingerprintAngularService)
+
+    expect(() => service.clearCache()).not.toThrow()
   })
 })
