@@ -6,6 +6,6 @@ import * as Fingerprint from '@fingerprint/agent'
 
 export * from './lib/fingerprint-angular.service'
 export * from './lib/fingerprint-angular.module'
-export * from './lib/tokens/fingerprintjs-pro-angular-settings-token'
+export * from './lib/tokens/fingerprint-angular-settings-token'
 
 export { Fingerprint }

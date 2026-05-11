@@ -1,5 +1,5 @@
 import { ModuleWithProviders, NgModule } from '@angular/core'
-import { FINGERPRINT_ANGULAR_SETTINGS_TOKEN } from './tokens/fingerprintjs-pro-angular-settings-token'
+import { FINGERPRINT_ANGULAR_SETTINGS_TOKEN } from './tokens/fingerprint-angular-settings-token'
 import { FingerprintSettings } from './interfaces/fingerprint-settings'
 
 /**
