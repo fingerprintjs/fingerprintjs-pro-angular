@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core'
-import { Fingerprint, FingerprintAngularService } from '@fingerprintjs/fingerprintjs-pro-angular'
+import { Fingerprint, FingerprintService } from '@fingerprintjs/fingerprintjs-pro-angular'
 
 @Component({
   selector: 'app-preloaded',
@@ -7,10 +7,10 @@ import { Fingerprint, FingerprintAngularService } from '@fingerprintjs/fingerpri
   styleUrls: ['./preloaded.component.css'],
 })
 export class PreloadedComponent implements OnInit {
-  constructor(private fingerprintAngularService: FingerprintAngularService) {
-    fingerprintAngularService
-      .getVisitorData()
-      .then((visitorData: Fingerprint.GetResult) => (this.eventId = visitorData.event_id))
+  constructor(private FingerprintService: FingerprintService) {
+    FingerprintService.getVisitorData().then(
+      (visitorData: Fingerprint.GetResult) => (this.eventId = visitorData.event_id)
+    )
   }
 
   eventId = 'Loading eventId...'

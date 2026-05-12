@@ -79,18 +79,18 @@ yarn add @fingerprintjs/fingerprintjs-pro-angular
 To identify visitors, you'll need a Fingerprint Pro account (you can [sign up for free](https://dashboard.fingerprint.com/signup/)).
 To get your API key and get started, see the [Quick Start guide in our documentation](https://dev.fingerprint.com/docs/quick-start-guide).
 
-1. Add `FingerprintAngularModule.forRoot()` to the imports sections in your root application module and pass it the `startOptions` configuration object. You can specify multiple configuration options. Set a [region](https://dev.fingerprint.com/docs/regions) if you have chosen a non-global region during registration. Set `endpoints` if you are using [one of our proxy integrations to increase accuracy](https://dev.fingerprint.com/docs/protecting-the-javascript-agent-from-adblockers) and effectiveness of visitor identification.
-   Read more about other [forRoot() parameters](#fingerprintangularmoduleforroot-props) below.
+1. Add `FingerprintModule.forRoot()` to the imports sections in your root application module and pass it the `startOptions` configuration object. You can specify multiple configuration options. Set a [region](https://dev.fingerprint.com/docs/regions) if you have chosen a non-global region during registration. Set `endpoints` if you are using [one of our proxy integrations to increase accuracy](https://dev.fingerprint.com/docs/protecting-the-javascript-agent-from-adblockers) and effectiveness of visitor identification.
+   Read more about other [forRoot() parameters](#FingerprintModuleforroot-props) below.
 
 ```javascript
 import { NgModule } from '@angular/core'
-import { FingerprintAngularModule, Fingerprint } from '@fingerprintjs/fingerprintjs-pro-angular'
+import { FingerprintModule, Fingerprint } from '@fingerprintjs/fingerprintjs-pro-angular'
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
-    FingerprintAngularModule.forRoot({
+    FingerprintModule.forRoot({
       startOptions: {
         apiKey: '<PUBLIC_API_KEY>',
         endpoints: ['https://metrics.yourwebsite.com'],
@@ -104,11 +104,11 @@ import { FingerprintAngularModule, Fingerprint } from '@fingerprintjs/fingerprin
 export class AppModule {}
 ```
 
-2. Inject `FingerprintAngularService` in your component's constructor. Now you can identify visitors using the `getVisitorData()` method.
+2. Inject `FingerprintService` in your component's constructor. Now you can identify visitors using the `getVisitorData()` method.
 
 ```typescript
 import { Component } from '@angular/core'
-import { FingerprintAngularService } from '@fingerprintjs/fingerprintjs-pro-angular'
+import { FingerprintService } from '@fingerprintjs/fingerprintjs-pro-angular'
 
 @Component({
   selector: 'app-home',
@@ -116,13 +116,13 @@ import { FingerprintAngularService } from '@fingerprintjs/fingerprintjs-pro-angu
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
-  constructor(private fingerprintAngularService: FingerprintAngularService) {}
+  constructor(private FingerprintService: FingerprintService) {}
   //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
   eventId = 'Press "Identify" button to get eventId'
 
   async onIdentifyButtonClick(): Promise<void> {
-    const data = await this.fingerprintAngularService.getVisitorData()
+    const data = await this.FingerprintService.getVisitorData()
     //  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     this.eventId = data.event_id
   }
@@ -143,7 +143,7 @@ Associate your data with an identification event using the `linkedId` or `tag` p
 // ...
 
 import { Component } from '@angular/core'
-import { FingerprintAngularService } from '@fingerprintjs/fingerprintjs-pro-angular'
+import { FingerprintService } from '@fingerprintjs/fingerprintjs-pro-angular'
 
 @Component({
   selector: 'app-home',
@@ -151,10 +151,10 @@ import { FingerprintAngularService } from '@fingerprintjs/fingerprintjs-pro-angu
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
-  constructor(private fingerprintAngularService: FingerprintAngularService) {}
+  constructor(private FingerprintService: FingerprintService) {}
 
   async onIdentifyButtonClick(): Promise<void> {
-    const data = await this.fingerprintAngularService.getVisitorData({
+    const data = await this.FingerprintService.getVisitorData({
       linkedId: 'user_1234',
       tag: {
         userAction: 'login',
@@ -171,7 +171,7 @@ export class HomeComponent {
 
 Fingerprint Pro usage is billed per API call. To avoid unnecessary API calls, it is a good practice to [cache identification results](https://dev.fingerprint.com/docs/caching-visitor-information). By default, the SDK does not use caching.
 
-- Specify `cache` on the `FingerprintAngularModule.forRoot` props to enable and configure caching.
+- Specify `cache` on the `FingerprintModule.forRoot` props to enable and configure caching.
 - For more details, see [Caching results](https://dev.fingerprint.com/docs/caching-visitor-information).
 
 > [!NOTE]
@@ -182,17 +182,17 @@ Fingerprint Pro usage is billed per API call. To avoid unnecessary API calls, it
 
 This library uses Fingerprint Pro JavaScript agent under the hood. See our documentation for the full [JavaScript Agent API reference](https://dev.fingerprint.com/reference/javascript-agent).
 
-### `FingerprintAngularModule`
+### `FingerprintModule`
 
-The module just initializes the Fingerprint Pro JS agent with start options and provides `FingerprintAngularService` to DI.
+The module just initializes the Fingerprint Pro JS agent with start options and provides `FingerprintService` to DI.
 
-#### `FingerprintAngularModule.forRoot` props
+#### `FingerprintModule.forRoot` props
 
 `startOptions: Fingerprint.StartOptions`
 
 Options for the FingerprintJS JS Pro agent `start()` method. Options follow the [agent's initialization properties](https://dev.fingerprint.com/reference/javascript-agent#start-options).
 
-### `FingerprintAngularService` methods
+### `FingerprintService` methods
 
 #### `getVisitorData(options?: GetOptions)`
 

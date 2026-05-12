@@ -1,5 +1,5 @@
 import { Component } from '@angular/core'
-import { FingerprintAngularService, Fingerprint } from '@fingerprintjs/fingerprintjs-pro-angular'
+import { FingerprintService, Fingerprint } from '@fingerprintjs/fingerprintjs-pro-angular'
 
 @Component({
   selector: 'app-home',
@@ -7,7 +7,7 @@ import { FingerprintAngularService, Fingerprint } from '@fingerprintjs/fingerpri
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
-  constructor(private fingerprintAngularService: FingerprintAngularService) {}
+  constructor(private FingerprintService: FingerprintService) {}
 
   eventId = 'Press "Identify" button to get eventId'
   result: Fingerprint.GetResult | null = null
@@ -18,7 +18,7 @@ export class HomeComponent {
 
   async onButtonClick(): Promise<void> {
     try {
-      const data = await this.fingerprintAngularService.getVisitorData()
+      const data = await this.FingerprintService.getVisitorData()
       this.eventId = data.event_id
       this.result = data
     } catch (error) {
@@ -30,7 +30,7 @@ export class HomeComponent {
   }
 
   onClearCacheClick() {
-    this.fingerprintAngularService.clearCache()
+    this.FingerprintService.clearCache()
     this.eventId = 'Press button to get eventId again'
     this.result = null
   }

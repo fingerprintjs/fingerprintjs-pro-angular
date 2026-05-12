@@ -6,11 +6,11 @@ import { FingerprintSettings } from './interfaces/fingerprint-settings'
 import { FINGERPRINT_ANGULAR_SETTINGS_TOKEN } from './tokens/fingerprint-angular-settings-token'
 
 /**
- * Inject FingerprintAngularService and use it to make identification requests.
+ * Inject FingerprintService and use it to make identification requests.
  *
  * @example ```typescript
  * import { Component, OnInit } from '@angular/core';
- * import { FingerprintAngularService } from '@fingerprintjs/fingerprintjs-pro-angular';
+ * import { FingerprintService } from '@fingerprintjs/fingerprintjs-pro-angular';
  *
  * @Component({
  *   selector: 'app-home',
@@ -19,12 +19,12 @@ import { FINGERPRINT_ANGULAR_SETTINGS_TOKEN } from './tokens/fingerprint-angular
  * })
  * export class HomeComponent implements OnInit {
  *
- *   constructor(private fingerprintAngularService: FingerprintAngularService) { }
+ *   constructor(private FingerprintService: FingerprintService) { }
  *
  *   eventId = 'Press "Identify" button to get eventId';
  *
  *   async onIdentifyButtonClick() : Promise<void> {
- *     const data = await this.fingerprintAngularService.getVisitorData();
+ *     const data = await this.FingerprintService.getVisitorData();
  *     this.eventId = data.event_id;
  *   }
  * }
@@ -33,7 +33,7 @@ import { FINGERPRINT_ANGULAR_SETTINGS_TOKEN } from './tokens/fingerprint-angular
 @Injectable({
   providedIn: 'root',
 })
-export class FingerprintAngularService {
+export class FingerprintService {
   private readonly publicAgent: Fingerprint.Agent | undefined
   private readonly settings: FingerprintSettings
 

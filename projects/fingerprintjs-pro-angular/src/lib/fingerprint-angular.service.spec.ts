@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing'
 
-import { FingerprintAngularService } from './fingerprint-angular.service'
-import { FingerprintAngularModule } from './fingerprint-angular.module'
+import { FingerprintService } from './fingerprint.service'
+import { FingerprintModule } from './fingerprint.module'
 
 import { Fingerprint } from '../public-api'
 import { packageVersion } from './version'
@@ -44,8 +44,8 @@ jest.mock('@fingerprint/agent', () => {
   }
 })
 
-describe('FingerprintAngularService', () => {
-  let service: FingerprintAngularService
+describe('FingerprintService', () => {
+  let service: FingerprintService
   let fingerprintAgent: any
 
   beforeEach(() => {
@@ -56,17 +56,17 @@ describe('FingerprintAngularService', () => {
 
   it('should be created', () => {
     TestBed.configureTestingModule({
-      imports: [FingerprintAngularModule.forRoot({ startOptions: fullOptions })],
+      imports: [FingerprintModule.forRoot({ startOptions: fullOptions })],
     })
-    service = TestBed.inject(FingerprintAngularService)
+    service = TestBed.inject(FingerprintService)
     expect(service).toBeTruthy()
   })
 
   it('should call Fingerprint.start with fullOptions', () => {
     TestBed.configureTestingModule({
-      imports: [FingerprintAngularModule.forRoot({ startOptions: fullOptions })],
+      imports: [FingerprintModule.forRoot({ startOptions: fullOptions })],
     })
-    service = TestBed.inject(FingerprintAngularService)
+    service = TestBed.inject(FingerprintService)
 
     expect(fingerprintAgent.start).toHaveBeenCalledWith({
       ...fullOptions,
@@ -76,9 +76,9 @@ describe('FingerprintAngularService', () => {
 
   it('should call Fingerprint.start with plainStartOptions', () => {
     TestBed.configureTestingModule({
-      imports: [FingerprintAngularModule.forRoot({ startOptions: plainStartOptions })],
+      imports: [FingerprintModule.forRoot({ startOptions: plainStartOptions })],
     })
-    service = TestBed.inject(FingerprintAngularService)
+    service = TestBed.inject(FingerprintService)
 
     expect(fingerprintAgent.start).toHaveBeenCalledWith({
       ...plainStartOptions,
@@ -92,9 +92,9 @@ describe('FingerprintAngularService', () => {
       integrationInfo: ['test-integration'],
     }
     TestBed.configureTestingModule({
-      imports: [FingerprintAngularModule.forRoot({ startOptions: optionsWithIntegration })],
+      imports: [FingerprintModule.forRoot({ startOptions: optionsWithIntegration })],
     })
-    service = TestBed.inject(FingerprintAngularService)
+    service = TestBed.inject(FingerprintService)
 
     expect(fingerprintAgent.start).toHaveBeenCalledWith({
       ...optionsWithIntegration,
@@ -104,9 +104,9 @@ describe('FingerprintAngularService', () => {
 
   it('should call getVisitorData and call agent.get', async () => {
     TestBed.configureTestingModule({
-      imports: [FingerprintAngularModule.forRoot({ startOptions: fullOptions })],
+      imports: [FingerprintModule.forRoot({ startOptions: fullOptions })],
     })
-    service = TestBed.inject(FingerprintAngularService)
+    service = TestBed.inject(FingerprintService)
     const getOptions: Fingerprint.GetOptions = {
       linkedId: 'test_linked_id',
     }
@@ -117,9 +117,9 @@ describe('FingerprintAngularService', () => {
 
   it('should call collectData and call agent.collect', async () => {
     TestBed.configureTestingModule({
-      imports: [FingerprintAngularModule.forRoot({ startOptions: fullOptions })],
+      imports: [FingerprintModule.forRoot({ startOptions: fullOptions })],
     })
-    service = TestBed.inject(FingerprintAngularService)
+    service = TestBed.inject(FingerprintService)
     const collectOptions: Fingerprint.GetOptions = {
       tag: {
         user_id: '123',
@@ -133,10 +133,10 @@ describe('FingerprintAngularService', () => {
   it('should not throw error when calling clearCache in SSR environment', () => {
     const { PLATFORM_ID } = require('@angular/core')
     TestBed.configureTestingModule({
-      imports: [FingerprintAngularModule.forRoot({ startOptions: fullOptions })],
+      imports: [FingerprintModule.forRoot({ startOptions: fullOptions })],
       providers: [{ provide: PLATFORM_ID, useValue: 'server' }],
     })
-    service = TestBed.inject(FingerprintAngularService)
+    service = TestBed.inject(FingerprintService)
 
     expect(() => service.clearCache()).not.toThrow()
   })

@@ -3,18 +3,18 @@ import { FINGERPRINT_ANGULAR_SETTINGS_TOKEN } from './tokens/fingerprint-angular
 import { FingerprintSettings } from './interfaces/fingerprint-settings'
 
 /**
- * Include FingerprintAngularModule using `forRoot` method.
+ * Include FingerprintModule using `forRoot` method.
  *
  * @example ```typescript
  * import { NgModule } from '@angular/core';
- * import { FingerprintAngularModule } from '@fingerprintjs/fingerprintjs-pro-angular';
+ * import { FingerprintModule } from '@fingerprintjs/fingerprintjs-pro-angular';
  * // ...
  *
  * @NgModule({
  *   declarations: [AppComponent],
  *   imports: [
  *     BrowserModule,
- *     FingerprintAngularModule.forRoot({startOptions: {apiKey: 'your-fp-public-api-key'}})
+ *     FingerprintModule.forRoot({startOptions: {apiKey: 'your-fp-public-api-key'}})
  *   ],
  *   providers: [],
  *   bootstrap: [AppComponent]
@@ -23,10 +23,10 @@ import { FingerprintSettings } from './interfaces/fingerprint-settings'
  * ```
  */
 @NgModule()
-export class FingerprintAngularModule {
-  static forRoot(settings: FingerprintSettings): ModuleWithProviders<FingerprintAngularModule> {
+export class FingerprintModule {
+  static forRoot(settings: FingerprintSettings): ModuleWithProviders<FingerprintModule> {
     return {
-      ngModule: FingerprintAngularModule,
+      ngModule: FingerprintModule,
       providers: [
         {
           provide: FINGERPRINT_ANGULAR_SETTINGS_TOKEN,

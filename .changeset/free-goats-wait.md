@@ -21,7 +21,7 @@ Caching is essential for:
 #### Enabling session storage caching
 
 ```typescript
-FingerprintAngularModule.forRoot({
+FingerprintModule.forRoot({
   startOptions: {
     apiKey: 'your-fp-public-api-key',
     cache: {
@@ -35,7 +35,7 @@ FingerprintAngularModule.forRoot({
 #### Enabling local storage caching
 
 ```typescript
-FingerprintAngularModule.forRoot({
+FingerprintModule.forRoot({
   startOptions: {
     apiKey: 'your-fp-public-api-key',
     cache: {

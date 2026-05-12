@@ -4,14 +4,14 @@ import { BrowserModule } from '@angular/platform-browser'
 import { AppComponent } from './app.component'
 import { HomeComponent } from './home/home.component'
 import { environment } from 'src/environments/environment'
-import { FingerprintAngularModule } from '@fingerprintjs/fingerprintjs-pro-angular'
+import { FingerprintModule } from '@fingerprintjs/fingerprintjs-pro-angular'
 import { PreloadedComponent } from './preloaded/preloaded.component'
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, PreloadedComponent],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
-    FingerprintAngularModule.forRoot({
+    FingerprintModule.forRoot({
       startOptions: {
         apiKey: environment.fingerprintJsProPublicKey,
         cache: {
