@@ -5,7 +5,9 @@
 Introduce Fingerprint Agent APIv4.
 
 This version removes the dependency on `@fingerprintjs/fingerprintjs-pro-spa` and uses `@fingerprint/agent` directly.
-To enable caching, you must configure it in the `startOptions` of the module.
+Caching is no longer enabled by default. To enable caching, you must configure it in the `startOptions` of the module.
+
+The `clearCache` method has been removed from the `FingerprintService`. If you need to clear the cache manually, you should do it by directly interacting with the storage you configured.
 
 > ⚠️This is a **breaking change**. Caching is no longer enabled by default.
 

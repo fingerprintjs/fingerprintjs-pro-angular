@@ -65,40 +65,4 @@ export class FingerprintService {
     }
     return this.publicAgent.collect(collectOptions)
   }
-
-  /**
-   * Clears the visitor data cache.
-   *
-   * By default, the JS agent caches the visitor data in the storage specified in the `cache` option.
-   * This method clears that storage.
-   */
-  clearCache(): void {
-    if (!isPlatformBrowser(this.platformId)) {
-      return
-    }
-    const cacheConfig = this.settings.startOptions.cache
-    if (!cacheConfig) {
-      return
-    }
-
-    const { storage, cachePrefix } = cacheConfig
-    const prefix = cachePrefix || 'fpjs_cache'
-
-    let storageEngine: Storage | undefined
-    if (storage === 'localStorage') {
-      storageEngine = window.localStorage
-    } else if (storage === 'sessionStorage') {
-      storageEngine = window.sessionStorage
-    }
-
-    if (storageEngine) {
-      for (let i = 0; i < storageEngine.length; i++) {
-        const key = storageEngine.key(i)
-        if (key?.startsWith(prefix)) {
-          storageEngine.removeItem(key)
-          i--
-        }
-      }
-    }
-  }
 }

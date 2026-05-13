@@ -30,7 +30,18 @@ export class HomeComponent {
   }
 
   onClearCacheClick() {
-    this.FingerprintService.clearCache()
+    const prefix = 'demo_cache_'
+    const storageEngine = window.localStorage
+    if (storageEngine) {
+      for (let i = 0; i < storageEngine.length; i++) {
+        const key = storageEngine.key(i)
+        if (key?.startsWith(prefix)) {
+          storageEngine.removeItem(key)
+          i--
+        }
+      }
+    }
+
     this.eventId = 'Press button to get eventId again'
     this.result = null
   }

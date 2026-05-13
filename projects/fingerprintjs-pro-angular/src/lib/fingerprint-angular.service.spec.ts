@@ -129,15 +129,4 @@ describe('FingerprintService', () => {
     await service.collectData(collectOptions)
     expect(agent.collect).toHaveBeenCalledWith(collectOptions)
   })
-
-  it('should not throw error when calling clearCache in SSR environment', () => {
-    const { PLATFORM_ID } = require('@angular/core')
-    TestBed.configureTestingModule({
-      imports: [FingerprintModule.forRoot({ startOptions: fullOptions })],
-      providers: [{ provide: PLATFORM_ID, useValue: 'server' }],
-    })
-    service = TestBed.inject(FingerprintService)
-
-    expect(() => service.clearCache()).not.toThrow()
-  })
 })

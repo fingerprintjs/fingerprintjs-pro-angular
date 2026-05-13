@@ -206,10 +206,6 @@ This method collects on demand fingerprint data.
 
 - `options: GetOptions` parameter follows the parameters of the FingerprintJS Pro's [`collect` function](https://dev.fingerprint.com/reference/javascript-agent#collect-options).
 
-#### `clearCache()`
-
-This method clears the configured cache used by the Fingerprint Angular service.
-
 ## Demo application
 
 This repository contains an example Angular application. To run the demo locally:
