@@ -5,7 +5,7 @@
   border-radius: 4px;
 }
 
-.extendedResult {
+.result {
   max-height: 400px;
   overflow: scroll;
 }

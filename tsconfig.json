@@ -13,8 +13,7 @@
     "sourceMap": true,
     "paths": {
       "@fingerprintjs/fingerprintjs-pro-angular": [
-        "dist/fingerprintjs-pro-angular/fingerprintjs-pro-angular",
-        "dist/fingerprintjs-pro-angular"
+        "projects/fingerprintjs-pro-angular/src/public-api"
       ]
     },
     "declaration": false,

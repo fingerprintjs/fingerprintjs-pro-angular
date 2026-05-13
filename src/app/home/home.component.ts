@@ -1,5 +1,5 @@
 import { Component } from '@angular/core'
-import { FingerprintjsProAngularService, GetResult, ExtendedGetResult } from '@fingerprintjs/fingerprintjs-pro-angular'
+import { FingerprintService, Fingerprint } from '@fingerprintjs/fingerprintjs-pro-angular'
 
 @Component({
   selector: 'app-home',
@@ -7,33 +7,42 @@ import { FingerprintjsProAngularService, GetResult, ExtendedGetResult } from '@f
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
-  constructor(private fingerprintjsProAngularService: FingerprintjsProAngularService) {}
+  constructor(private FingerprintService: FingerprintService) {}
 
-  visitorId = 'Press "Identify" button to get visitorId'
-  extendedResult: GetResult | ExtendedGetResult | null = null
+  eventId = 'Press "Identify" button to get eventId'
+  result: Fingerprint.GetResult | null = null
 
-  get extendedResultJSON() {
-    return JSON.stringify(this.extendedResult, null, 2)
+  get resultJSON() {
+    return JSON.stringify(this.result, null, 2)
   }
 
   async onButtonClick(): Promise<void> {
     try {
-      const data = await this.fingerprintjsProAngularService.getVisitorData({
-        extendedResult: true,
-      })
-      this.visitorId = data.visitorId
-      this.extendedResult = data
+      const data = await this.FingerprintService.getVisitorData()
+      this.eventId = data.event_id
+      this.result = data
     } catch (error) {
       if (error instanceof Error) {
-        this.visitorId = `${error.name}: ${error.message}`
-        this.extendedResult = null
+        this.eventId = `${error.name}: ${error.message}`
+        this.result = null
       }
     }
   }
 
   onClearCacheClick() {
-    this.fingerprintjsProAngularService.clearCache()
-    this.visitorId = 'Press button to get visitorId again'
-    this.extendedResult = null
+    const prefix = 'demo_cache_'
+    const storageEngine = window.localStorage
+    if (storageEngine) {
+      for (let i = 0; i < storageEngine.length; i++) {
+        const key = storageEngine.key(i)
+        if (key?.startsWith(prefix)) {
+          storageEngine.removeItem(key)
+          i--
+        }
+      }
+    }
+
+    this.eventId = 'Press button to get eventId again'
+    this.result = null
   }
 }

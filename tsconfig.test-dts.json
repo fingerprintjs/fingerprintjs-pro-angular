@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "moduleResolution": "node",
+    "target": "es2020",
+    "module": "es2020",
+    "lib": [
+      "es2020",
+      "dom"
+    ],
+    "skipLibCheck": true,
+    "noEmit": true,
+    "isolatedModules": true,
+    "paths": {
+      "@fingerprintjs/fingerprintjs-pro-angular": ["dist/fingerprintjs-pro-angular"]
+    }
+  },
+  "include": [
+    "dist/fingerprintjs-pro-angular/index.d.ts"
+  ]
+}
