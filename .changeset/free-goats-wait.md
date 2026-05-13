@@ -2,7 +2,7 @@
 '@fingerprintjs/fingerprintjs-pro-angular': major
 ---
 
-Introduce Fingerprint Agent APIv4.
+Introduce Fingerprint Agent API v4.
 
 This version removes the dependency on `@fingerprintjs/fingerprintjs-pro-spa` and uses `@fingerprint/agent` directly.
 Caching is no longer enabled by default. To enable caching, you must configure it in the `startOptions` of the module.
