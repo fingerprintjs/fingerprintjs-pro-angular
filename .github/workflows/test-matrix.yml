@@ -40,6 +40,9 @@ jobs:
         with:
           version: 8
 
+      - name: Generate project version
+        run: pnpm generate:version
+
       - name: Setup environment variables
         run: |
           echo "CI=true" >> $GITHUB_ENV
