@@ -18,6 +18,7 @@
 </a>
 <a href="https://www.npmjs.com/package/@fingerprint/angular">
   <img src="https://img.shields.io/npm/dm/@fingerprint/angular.svg" alt="Monthly downloads from NPM">
+</a>
 <a href="https://opensource.org/licenses/MIT">
   <img src="https://img.shields.io/:license-mit-blue.svg" alt="MIT license">
 </a>
